@@ -1,7 +1,7 @@
 ---
 title: 'Enhancing Component Performance in JavaScript Frontend Frameworks'
 description: ''
-pubDate: 'Aug 21 2022'
+pubDate: 'Aug 21 2023'
 heroImage: '/blog-placeholder-3.jpg'
 ---
 
