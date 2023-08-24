@@ -53,5 +53,82 @@
       "Development of prediction models using machine learning."
     ],
     "stack": "SAS · SAS Enterprise Guide · SAS Enterprise Miner · PowerBI · Microsoft Access · Microsoft Excel"
+  },
+  {
+    "position": "Developer Sharepoint/ReactJS",
+    "company": "TRAJEO’H (VINCI), PARIS",
+    "dates": "JAN 2020 - MAR 2020",
+    "description": "Trajeo'h is an associative structure dedicated to maintaining employment, reclassifying and recruiting people with disabilities.",
+    "tasks": [
+      "Full stack development of a monitoring form management application",
+      "Possibility to search, modify, add, close and duplicate SharePoint custom cards via the application",
+      "Reporting of files using personalized views",
+      "Automated provisioning of SharePoint lists in JavaScript."
+    ],
+    "stack": "Sharepoint · JavaScript · ReactJs"
+  },
+  {
+    "position": "Lead Developer ReactJS",
+    "company": "FFGolf, PARIS",
+    "dates": "SEP 2020 – JAN 2021",
+    "description": "Umniah is one of the main network operators in Jordan",
+    "tasks": [
+      "Development of all the components of the new Web Application of the Fench Golf Federation",
+      "Development of the application's Front-end",
+      "Implementationof a complex Redux store",
+      "Creation of multiple themes (colors, fonts, logos, ...) as well as dark modes for each theme"
+    ],
+    "stack": "ReactJs · Redux · React Hooks · React-router · Next · Material-UI · HTML · CSS · Git · Azure DevOps · Jira"
+  },
+  {
+    "position": "Developer C# .Net Core",
+    "company": "HAWAII, PARIS",
+    "dates": "JAN 2020 – MAR 2021",
+    "description": "Hawaii is a consulting company specialized in Microsoft & .NET technologies.",
+    "tasks": [
+      "Keeping Hawaii's website efficient and up to date, automate tasks with CI/CD pipelines, ... Development of contact forms in AJAX",
+      "Code refactoring and technological upgrade of Hawaii's website",
+      "Modernising the front with VueJS components",
+      "Working on the site's responsiveness and cross browser testing."
+    ],
+    "stack": "C# ASP.Net Core · Razor · JavaScript · jQuery · Ajax · HTML · CSS · Bootstrap · SendGrid"
+  },
+  {
+    "position": "Lead Developer Nuxt",
+    "company": "IPOPI, Antananarivo",
+    "dates": "FEB 2022 – MAY 2022",
+    "description": "IPOPI’s 4ID helps you manage and monitor your health.",
+    "tasks": [
+      "Rebuilt the application with vue3 composition api (fine-grained reactivity), following web best practices, implementing end-to-end tests, CI/CD pipelines. Framework7 and tailwind design."
+    ],
+    "stack": "Nuxt · Vue.js · Framework7 · Typescript"
+  },
+  {
+    "position": "Lead Developer NextJS",
+    "company": "Tango Lu, Antananarivo",
+    "dates": "DEC 2022 – MAR 2023",
+    "description": "First alternative operator in Luxembourg, Tango offers mobile, internet and TV solutions.",
+    "tasks": [
+      "Redesigning the front of the website with clean architecture and server side rendered components with nextJS. Integration for a sylius backend and a Strapi CMS. Internationalisation of the application."
+    ],
+    "stack": "Project Management · React.js · Next.js · Typescript"
+  },
+  {
+    "position": "Project Manager",
+    "company": "Futurmap, Antananarivo",
+    "dates": "APR 2021 – APR 2023",
+    "description": "Futurmap is today's French leader in geographic data processing, 2D digitization and 3D modelling. Built Futurmap’s delivery platform, used to deliver all kind of files to Futurmap’s clients.",
+    "tasks": [
+      "Fully capable file explorer",
+      "2D/3D file viewers",
+      "Project geolocation on map",
+      "Search engine",
+      "Containerisation",
+      "CI/CID pipelines",
+      "ETL & Data Analysis",
+      "Building QGIS plugins for automated geographical treatments",
+      "Giving formations on Web technologies and best practices (declarative programming), Geographic Information System and the Web as well as Data Analysis & Business Intelligence (building ETLs in python and SQL, visualisation with Power BI)"
+    ],
+    "stack": "Angular · Django · Project Management · Typescript · Amazon Web Services (AWS) · Data Analysis"
   }
 ]
