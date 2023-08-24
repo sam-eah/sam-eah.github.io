@@ -3,6 +3,9 @@ import Layout from '../layouts/BlogPost.astro';
 
 import cv from '../data/cv.json';
 import Mission from '../components/Mission.astro';
+
+// const cvr = cv.toReversed();
+const cvr = [...cv].reverse();
 ---
 
 <Layout
@@ -10,5 +13,5 @@ import Mission from '../components/Mission.astro';
   description='Lorem ipsum dolor sit amet'
   pubDate={new Date()}
   heroImage='/blog-placeholder-about.jpg'>
-  {cv.map((xp) => <Mission {...xp} />)}
+  {cvr.map((xp) => <Mission {...xp} />)}
 </Layout>
