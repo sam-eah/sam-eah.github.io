@@ -1,0 +1,57 @@
+[
+  {
+    "position": "Software Developer (intern)",
+    "company": "INSERM, PARIS",
+    "dates": "JUL 2016 – AUG 2016",
+    "description": "",
+    "tasks": [
+      "Development of a desktop application with a graphical interface for managing INSERM (National Institute of Health and Medical Research) applications."
+    ],
+    "stack": "C++ · Qt · SQL · MySQL · phpMyAdmin"
+  },
+  {
+    "position": "Software Developer (contractor)",
+    "company": "INSERM, PARIS",
+    "dates": "JUL 2017 - AUG 2017",
+    "description": "",
+    "tasks": [
+      "Development of an application with a GUI for managing INSERM agents",
+      "Migration from Access database to MSSQL Server database",
+      "Migration from MSSQL Server migration to MySQL database"
+    ],
+    "stack": "VBA · SQL · MySQL · phpMyAdmin · Microsoft SQL Server"
+  },
+  {
+    "position": "Developer C#.Net/SQL (intern)",
+    "company": "AL-GHASSAN INFORMATION SYSTEMS, RAMALLAH",
+    "dates": "JUN 2018 – JUL 2018",
+    "description": "",
+    "tasks": [
+      "Development of a logistics webapp.",
+      "Establishment of a transport network database.",
+      "Route calculation, hotel room management, ..."
+    ],
+    "stack": "C# ASP.NET Core · Telerik UI · HTML · CSS · JS"
+  },
+  {
+    "position": "Game Developer (intern)",
+    "company": "GAMIPHY, RAMALLAH",
+    "dates": "JUL 2018 - AUG 2018",
+    "description": "Gamiphy is a gamification company.",
+    "tasks": ["Development of minigames in JavaScript using PhaserJS"],
+    "stack": "JavaScript · jQuery · PhaserJs"
+  },
+  {
+    "position": "Data Analyst (intern)",
+    "company": "UMNIAH, AMMAN",
+    "dates": "OCT 2018 – APR 2019",
+    "description": "Umniah is one of the main network operators in Jordan",
+    "tasks": [
+      "Behavioural studies of Umniah's mobile network users",
+      "Data analysis",
+      "Business intelligence",
+      "Development of prediction models using machine learning."
+    ],
+    "stack": "SAS · SAS Enterprise Guide · SAS Enterprise Miner · PowerBI · Microsoft Access · Microsoft Excel"
+  }
+]

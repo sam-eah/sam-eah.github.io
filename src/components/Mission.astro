@@ -1,0 +1,26 @@
+---
+// Import the global.css file here so that it is included on
+// all pages through the use of the <BaseHead /> component.
+import '../styles/global.css';
+
+interface Props {
+  position: string;
+  company: string;
+  dates: string;
+  description?: string;
+  tasks: string[];
+  stack: string;
+}
+
+const { position, company, dates, description, tasks, stack } = Astro.props;
+---
+
+<div style='margin-bottom: 60px;'>
+  <h3>{position} - {company}</h3>
+  <h4>{dates}</h4>
+  {description && <p style='margin-bottom: 1em;'>{description}</p>}
+  <ul>
+    {tasks.map((task) => <li>{task}</li>)}
+  </ul>
+  <h5>{stack}</h5>
+</div>

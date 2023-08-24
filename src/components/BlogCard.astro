@@ -1,0 +1,57 @@
+---
+import FormattedDate from '../components/FormattedDate.astro';
+
+interface Props {
+  id: string;
+  slug: string;
+  body: string;
+  collection: string;
+  data: {
+    title: string;
+    pubDate: Date;
+    description: string;
+    updatedDate?: Date | undefined;
+    heroImage?: string | undefined;
+  };
+}
+
+const { slug, data } = Astro.props;
+---
+
+<style>
+  img {
+    margin-bottom: 0.5rem;
+    border-radius: 12px;
+  }
+  a {
+    display: block;
+  }
+  .title {
+    margin: 0;
+    color: rgb(var(--black));
+    line-height: 1;
+  }
+  .date {
+    margin: 0;
+    color: rgb(var(--gray));
+  }
+  a:hover h4,
+  a:hover .date {
+    color: rgb(var(--accent));
+  }
+  a:hover img {
+    box-shadow: var(--box-shadow);
+  }
+  * {
+    text-decoration: none;
+    transition: 0.2s ease;
+  }
+</style>
+
+<a href={`/blog/${slug}/`}>
+  <img width={720} height={360} src={data.heroImage} alt='' />
+  <h4 class='title'>{data.title}</h4>
+  <p class='date'>
+    <FormattedDate date={data.pubDate} />
+  </p>
+</a>
