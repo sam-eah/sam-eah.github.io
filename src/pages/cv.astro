@@ -6,6 +6,9 @@ import Mission from '../components/Mission.astro';
 
 // const cvr = cv.toReversed();
 const cvr = [...cv].reverse();
+
+import * as myPost from '../content/other/technos.md';
+const { Content } = myPost;
 ---
 
 <Layout
@@ -14,4 +17,6 @@ const cvr = [...cv].reverse();
   pubDate={new Date()}
   heroImage='/blog-placeholder-about.jpg'>
   {cvr.map((xp) => <Mission {...xp} />)}
+
+  <Content />
 </Layout>
