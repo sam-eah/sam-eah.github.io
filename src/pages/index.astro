@@ -1,5 +1,4 @@
 ---
-import Footer from '../components/Footer.astro';
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/layout.astro';
 import BlogCard from '../components/BlogCard.astro';
@@ -56,5 +55,4 @@ const posts = (await getCollection('blog')).sort(
       </ul>
     </section>
   </main>
-  <Footer />
 </Layout>
