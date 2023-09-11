@@ -2,7 +2,7 @@
 title: 'Exploring AWS Services: A Comprehensive Overview'
 description: 'Lorem ipsum dolor sit amet'
 pubDate: 'Aug 21 2023'
-heroImage: '/blog-placeholder-4.jpg'
+heroImage: '/aws.jpg'
 ---
 
 ## Introduction
@@ -13,7 +13,7 @@ In the dynamic realm of cloud computing, Amazon Web Services (AWS) stands tall a
 
 The foundation of AWS's global presence lies in its **Regions**—clusters of data centers interconnected by a high-speed network. Regions, like `us-east-1` and `eu-west-3`, are pivotal decisions influenced by factors such as compliance, client proximity, service availability, and pricing considerations. Inside each Region, **Availability Zones (AZs)**—distinct from each other—guarantee disaster isolation while maintaining ultra-low latency connectivity.
 
-![AWS Regions and Availability Zones](region-az-diagram.png)
+<!-- ![AWS Regions and Availability Zones](region-az-diagram.png) -->
 
 ### Real-World Example
 
@@ -28,7 +28,7 @@ At the heart of AWS networking is the **Virtual Private Cloud (VPC)**—a privat
 - Design your VPC and subnet architecture thoughtfully to align with security and performance needs.
 - Utilize Network Access Control Lists (NACLs) for additional network layer security.
 
-![VPC and Subnets](vpc-subnet-diagram.png)
+<!-- ![VPC and Subnets](vpc-subnet-diagram.png) -->
 
 ## AWS Networking Components
 
@@ -51,7 +51,7 @@ The **Elastic Compute Cloud (EC2)** service offers virtual machines that cater t
 - Regularly update your AMIs to ensure security patches and optimizations.
 - Implement proper IAM roles for EC2 instances to avoid exposing sensitive credentials.
 
-![EC2 Instances and EBS](ec2-ebs-diagram.png)
+<!-- ![EC2 Instances and EBS](ec2-ebs-diagram.png) -->
 
 ## Load Balancers and Auto Scaling Groups
 
@@ -82,7 +82,7 @@ Imagine a microservices-based application architecture. ECS combined with Fargat
 - Regularly perform database backups and implement automated snapshots for point-in-time recovery.
 - Opt for Aurora if you require high performance and compatibility with MySQL or PostgreSQL.
 
-![AWS RDS and Aurora](rds-aurora-diagram.png)
+<!-- ![AWS RDS and Aurora](rds-aurora-diagram.png) -->
 
 ## Conclusion
 

@@ -2,7 +2,7 @@
 title: 'Exploring Terraform: Cloud Infrastructure Management'
 description: 'Lorem ipsum dolor sit amet'
 pubDate: 'Aug 21 2023'
-heroImage: '/blog-placeholder-2.jpg'
+heroImage: '/terraform.JPG'
 ---
 
 ## Introduction

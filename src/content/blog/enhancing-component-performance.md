@@ -2,7 +2,7 @@
 title: 'Enhancing Component Performance in JavaScript Frontend Frameworks'
 description: ''
 pubDate: 'Aug 21 2023'
-heroImage: '/blog-placeholder-3.jpg'
+heroImage: '/js-frameworks.jpg'
 ---
 
 Welcome to an in-depth exploration of component performance within the realm of JavaScript frontend frameworks. In this article, we will navigate through crucial aspects that significantly impact component performance, such as rendering optimizations, virtual DOM implementations, state management strategies, and the intricacies of reactive data flows. By delving into these components' behaviors and underlying mechanisms, we aim to empower developers with insights and techniques that will elevate the performance metrics of their applications.

@@ -22,6 +22,8 @@ const { slug, data } = Astro.props;
   img {
     margin-bottom: 0.5rem;
     border-radius: 12px;
+    aspect-ratio: 2/1;
+    object-fit: cover;
   }
   a {
     display: block;
@@ -49,9 +51,9 @@ const { slug, data } = Astro.props;
 </style>
 
 <a href={`/blog/${slug}/`}>
-  <img width={720} height={360} src={data.heroImage} alt='' />
-  <h4 class='title'>{data.title}</h4>
+  <img transition:name={`img:${data.title}`} width={720} height={360} src={data.heroImage} alt='' />
+  <h4 transition:name={`title:${data.title}`} class='title'>{data.title}</h4>
   <p class='date'>
-    <FormattedDate date={data.pubDate} />
+    <FormattedDate transition:name={`title:${data.pubDate}`} date={data.pubDate} />
   </p>
 </a>
