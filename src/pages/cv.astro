@@ -1,5 +1,6 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import BlogPost from '../components/BlogPost.astro';
+import Layout from '../layouts/layout.astro';
 
 import cv from '../data/cv.json';
 import Mission from '../components/Mission.astro';
@@ -11,12 +12,13 @@ import * as myPost from '../content/other/technos.md';
 const { Content } = myPost;
 ---
 
-<Layout
-  title='Resume'
-  description='Lorem ipsum dolor sit amet'
-  pubDate={new Date()}
-  heroImage='/blog-placeholder-about.jpg'>
-  {cvr.map((xp) => <Mission {...xp} />)}
+<Layout>
+  <BlogPost
+    title='Resume'
+    description='Lorem ipsum dolor sit amet'
+    pubDate={new Date()}>
+    {cvr.map((xp) => <Mission {...xp} />)}
 
-  <Content />
+    <Content />
+  </BlogPost>
 </Layout>
