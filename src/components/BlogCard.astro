@@ -28,19 +28,6 @@ const { slug, data } = Astro.props;
   a {
     display: block;
   }
-  .title {
-    margin: 0;
-    color: rgb(var(--black));
-    line-height: 1;
-  }
-  .date {
-    margin: 0;
-    color: rgb(var(--gray));
-  }
-  a:hover h4,
-  a:hover .date {
-    color: rgb(var(--accent));
-  }
   a:hover img {
     box-shadow: var(--box-shadow);
   }
@@ -51,9 +38,22 @@ const { slug, data } = Astro.props;
 </style>
 
 <a href={`/blog/${slug}/`}>
-  <img transition:name={`img:${data.title}`} width={720} height={360} src={data.heroImage} alt='' />
-  <h4 transition:name={`title:${data.title}`} class='title'>{data.title}</h4>
-  <p class='date'>
-    <FormattedDate transition:name={`title:${data.pubDate}`} date={data.pubDate} />
+  <img
+    transition:name={`img:${data.title}`}
+    width={720}
+    height={360}
+    src={data.heroImage}
+    alt=''
+  />
+  <h4
+    transition:name={`title:${data.title}`}
+    class='text-center font-bold [text-wrap:balance]'>
+    {data.title}
+  </h4>
+  <p class='text-center text-gray-500'>
+    <FormattedDate
+      transition:name={`title:${data.pubDate}`}
+      date={data.pubDate}
+    />
   </p>
 </a>
