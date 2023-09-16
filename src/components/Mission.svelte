@@ -14,7 +14,7 @@
 <details class="border-black border rounded-md p-2">
   <summary>
     <span>{position}, {location} - {company}</span>
-    <span class="float-right">{dates}</span>
+    <div class="text-right">{dates}</div>
   </summary>
   <div class="content">
     <div>
