@@ -72,7 +72,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
         )
       }
     </div>
-    <div class='prose prose-sm'>
+    <div class='sm:prose prose-sm m-auto'>
       <div class='text-center'>
         <div class='date'>
           <FormattedDate transition:name={`date:${pubDate}`} date={pubDate} />
