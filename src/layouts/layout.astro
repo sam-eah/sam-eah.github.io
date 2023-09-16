@@ -4,9 +4,11 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { ViewTransitions } from 'astro:transitions';
+
+import Layout2 from './layout2.svelte';
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang='en'>
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
@@ -15,7 +17,9 @@ import { ViewTransitions } from 'astro:transitions';
   <body>
     <Header title={SITE_TITLE} />
     <section transition:animate='slide'>
-      <slot />
+      <Layout2 client:load>
+        <slot />
+      </Layout2>
     </section>
     <Footer />
   </body>

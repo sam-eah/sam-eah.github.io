@@ -1,9 +1,11 @@
 ---
 import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
+
+const props = Astro.props;
 ---
 
-<header>
+<header {...props}>
   <nav>
     <h2><a href='/'>{SITE_TITLE}</a></h2>
     <div class='internal-links'>
@@ -30,6 +32,9 @@ import { SITE_TITLE } from '../consts';
     padding: 0 1em;
     background: white;
     box-shadow: 0 2px 8px rgba(var(--black), 5%);
+    position: sticky;
+    z-index: 10;
+    top: 0;
   }
   h2 {
     margin: 0;
