@@ -15,7 +15,7 @@
     if (location.pathname !== '/cv' && event.detail.direction === 'left') {
       b.click();
       return;
-    }fix s
+    }
   }
 </script>
 
