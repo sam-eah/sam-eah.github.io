@@ -1,0 +1,65 @@
+<script lang="ts">
+  import MissionList from './MissionList.svelte';
+
+  export let position: string = '';
+  export let company: string | undefined = '';
+  export let location: string | undefined = '';
+  export let dates: string | undefined = '';
+  export let description: string | undefined = '';
+  export let tasks: string[] = [];
+  export let stack: string | undefined = '';
+  export let missions: any[] = [];
+</script>
+
+<details class="border-black border rounded-md p-2">
+  <summary>
+    <span>{position}, {location} - {company}</span>
+    <span class="float-right">{dates}</span>
+  </summary>
+  <div class="content">
+    <div>
+      {#if description}
+        <p style="margin-bottom: 1em;">{description}</p>
+      {/if}
+      <ul>
+        {#each tasks as task}
+          <li>{task}</li>
+        {/each}
+      </ul>
+      <h5>{stack}</h5>
+
+      <MissionList {missions} />
+    </div>
+  </div>
+</details>
+
+<style>
+  details {
+    /* background: gainsboro; */
+    padding: 10px;
+  }
+
+  details > div {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 500ms;
+    overflow: hidden;
+  }
+
+  details > summary {
+    cursor: pointer;
+    transition: margin 150ms ease-out;
+  }
+
+  details[open] summary {
+    margin-bottom: 1px;
+  }
+
+  details[open] > div {
+    grid-template-rows: 1fr;
+  }
+
+  .content > div {
+    overflow: hidden;
+  }
+</style>
