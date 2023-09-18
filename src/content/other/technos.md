@@ -9,16 +9,16 @@ heroImage: '/blog-placeholder-1.jpg'
 
 ### Frontend
 
-|                          |                                                               |
-| ------------------------ | ------------------------------------------------------------- |
-| JS Frameworks            | Vue, React, Angular, Svelte, Solid, Astro                     |
-| JS Meta Frameworks       | Nuxt, Next, Analog, Svelte Kit, Solid Start                   |
-| State Management (Store) | Redux, Vuex, Pinia, RxJS, Apollo, Jotai, Zustand, Nano Stores |
-| Fetch tools              | React Query, fetch, axios                                     |
-| CSS                      | Tailwind, Vuetify, Material UI, Material, Framework7          |
-| Module Bundlers          | Webpack, Rollup, Vite, Nitro, (turbopack)                     |
-| Tests                    | Storybook, Karma, Jasmine, Selenium, Cypress                  |
-| Mobile                   | PWA, _React Native_, _Flutter_                                |
+|                          |                                                                  |
+| ------------------------ | ---------------------------------------------------------------- |
+| JS Frameworks            | Vue, React, Angular, Svelte, Solid, Astro                        |
+| JS Meta Frameworks       | Nuxt, Next, Analog, Svelte Kit, Solid Start                      |
+| State Management (Store) | Redux, Vuex, Pinia, Jotai, Zustand, Nano Stores                  |
+| Fetch tools              | TanStack Query (react query, ngneat query), Apollo, fetch, axios |
+| CSS                      | Tailwind, Vuetify, Material UI, Material, Framework7             |
+| Module Bundlers          | Webpack, Rollup, Vite, Nitro, (turbopack)                        |
+| Tests                    | Storybook, Karma, Jasmine, Selenium, Cypress                     |
+| Mobile                   | PWA, _React Native_, _Flutter_                                   |
 
 ### Backend
 
@@ -26,13 +26,11 @@ heroImage: '/blog-placeholder-1.jpg'
 | ------------------ | ----------------------------------------------------------- |
 | Frameworks         | Express, Nest, Fastify, Django (Python), ASP .Net Core (C#) |
 | Python web servers | Daphne (ASGI), Gunicorn (WSGI)                              |
-| API                | REST / Graph QL (Apollo), Websocket, tRPC                   |
+| API                | REST / Graph QL, Websocket, webRTC, tRPC                    |
 | Headless CMS       | Directus, Strapi                                            |
 | SQL DB             | MySQL, Postgres, MSSQL Server                               |
 | NoSQL DB           | MongoDB, FireStore, ElasticSearch                           |
-| ORM                | TypeOrm, Prisma, Drizzle                                    |
-| Monitoring         | Kibana, LogStash                                            |
-| CMS                | Strapi, Directus                                            |
+| ORM                | TypeOrm, Prisma, Drizzle, Entity Framework, Django ORM      |
 | Web Servers        | Nginx, Apache                                               |
 | Containerization   | Docker                                                      |
 | Orchestration      | Docker Compose, _Kubernetes_                                |
@@ -40,18 +38,26 @@ heroImage: '/blog-placeholder-1.jpg'
 
 ### DevOps
 
-|                              |                                               |
-| ---------------------------- | --------------------------------------------- |
-| Versioning                   | Git / Gitlab, Github, Azure Devops, Bitbucket |
-| CI / CD Pipelines            | Gilab CI, Azure Devops, Github Actions        |
-| Cloud Infrastructure as code | Terraform                                     |
-| Monorepo                     | pnpm, Nx, Turborepo                           |
+|                        |                                                           |
+| ---------------------- | --------------------------------------------------------- |
+| Versioning             | Gitlab, Github, Azure Devops, Bitbucket                   |
+| CI / CD Pipelines      | Gilab CI, Azure Devops, Github Actions, TeamCity, Octopus |
+| Infrastructure as code | Terraform, Kotlin                                         |
+| Monorepo               | Nx, Turborepo, lerna, workspaces (pnpm, yarn, bun)        |
+| Monitoring             | Kibana, LogStash                                          |
+| Reporting              | Kibana, LogStash                                          |
+
+### Serverless
+
+|                 |                                |
+| --------------- | ------------------------------ |
+| Cloud Functions | AWS Lambda, Firebase Functions |
 
 ### Auth
 
-|                |                                                                              |
-| -------------- | ---------------------------------------------------------------------------- |
-| Authentication | Custom (Cookies, JWT), OAuth, Clerk, Cognito, Auth0, Firebase Authentication |
+|                |                                                                     |
+| -------------- | ------------------------------------------------------------------- |
+| Authentication | Cookies, JWT, OAuth, Clerk, Cognito, Auth0, Firebase Authentication |
 
 ### API
 
