@@ -132,10 +132,10 @@
           "Batch file upload to s3",
           "Search engine using kibana elastic search (first dockerized on the server then using opensearch service on aws)",
           "Typescript rxjs, functional declarative programming ",
-          "Tanstack query (react query’s under layer) for fetching, caching, revalidating queries ",
+          "ngneat query (based on Tanstack query, react query’s under layer) for fetching, caching, revalidating queries ",
           "Material and tailwind css for style ",
           "Angular services as store ",
-          "Migration to angular 15 (standalone components, dynamic imports, inject services, …)",
+          "Keeping libraries up to date, (for angular: standalone components, async imports, inject, …)",
           "Data analysis with an automated ETL generating tables for data analysts"
         ],
         "stack": "Angular · Django · Project Management · Typescript · Amazon Web Services (AWS) · Data Analysis"

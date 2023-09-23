@@ -15,7 +15,7 @@ Before we dive into the specifics, let's ensure we have a clear understanding of
   _Re-rendering_ occurs when a component's view updates to reflect changes in data without recreating the component entirely. During re-rendering, the component's template is re-evaluated, and the updated virtual representation is compared to the previous one, resulting in minimal changes to the real DOM.
 
 - **Updates:**
-  An "_update_" refers to changes in the application's state or data. These changes trigger a re-render of the component to reflect the updated data.
+  An "_update_" refers to changes in the application's state or data. These changes trigger a re-render of the component (or the DOM element for fine-grained reactivity) to reflect the updated data.
 
 - **Mounting/Unmounting/Re-mounting:**
   "_Mounting_" involves creating a new component instance and inserting it into the DOM for the first time. Conversely, "_unmounting_" is the process of removing a component from the DOM and releasing any associated resources. "_Re-mounting_" occurs when a component is unmounted and then mounted again, effectively recreating the component instance and initiating the mounting process anew.
@@ -58,6 +58,12 @@ When composition isn't feasible, memoization can be a game-changer:
 
 However, it's crucial to use memoization judiciously to avoid unnecessary overhead.
 
+It must be note that, while react is becoming one of the hardest framework to optimize, it's backbone is not planned to be updated by the team (unlike the next framework of this list).
+
+<!-- {% twitter 1626590880126889984 %} -->
+
+However there have been some work for quite a while for a compiler automating all the memoization when possible, called **react forget**, but no date to the horizon (it's actually been while since we haven't got any news, maybe _react forgot_)
+
 ### React Store Management Libraries
 
 1. **Redux:**
@@ -70,13 +76,15 @@ However, it's crucial to use memoization judiciously to avoid unnecessary overhe
    Components that use the `useAtom` hook in Jotai only re-render when the state of the atoms they access changes. This selective subscription to state updates helps optimize re-renders, as components react only to relevant changes.
 
 4. **Nanostores:**
-   Components subscribed to specific atoms in Nanostores re-render only when the corresponding atom's state changes. This selective reactivity minimizes unnecessary re-renders in components that don't depend on specific changes.
+   Components subscribed to specific atoms in Nanostores re-render only when the corresponding atom's state changes. This selective reactivity minimizes unnecessary re-renders in components that don't depend on specific changes. Nanostores give the advantage to be shareable between many different JS frameworks, it maybe useful if you plan on using Astro with many frameworks for example.
 
 ## Angular's Approach to Component Updates
 
 Angular, like React, adopts the concept of a virtual DOM, but it implements it uniquely. Angular employs a two-phase change detection mechanism that efficiently detects and applies changes to the DOM. Unlike React's virtual DOM diffing, Angular focuses on individual components affected by changes instead of diffing entire virtual DOM trees.
 
 Angular's change detection comes in two flavors: the default "_CheckAlways_" strategy and the more efficient "_OnPush_" strategy. The former triggers rerenders whenever any changes occur, whereas the latter focuses on input property changes and event triggers. Change detection might change with the recent introduction of **signals**, that should make _zone.js_ no longer useful in angular.
+
+<!-- {% twitter 1625939902046117890 %} -->
 
 ### Store Management in Angular
 
@@ -86,7 +94,11 @@ In Angular, components are seamlessly connected to the store, which acts as a ce
 
 Vue.js also embraces the Virtual DOM, with components updating when changes in state are detected. Vue's components possess lifecycle hooks for managing initialization, updates, and cleanup. Remarkably, a child component in Vue updates only when one of its received props changes—a feature that influences how you structure your components.
 
-To optimize Vue rerenders:
+However, vue is the first framework on this list to leverage fined-grained reactivity. This means that components should, out of the box, only update UI DOM elements that changed.
+
+<!-- {% twitter 1469141353309224962 %} -->
+
+There are still ways to help optimize Vue's performance:
 
 - Leverage directives like `v-once` for components that never require updates.
 - Explore `v-memo`, similar to React's memoization, for fine-grained control over rerenders.
@@ -99,17 +111,21 @@ Vue doesn't provide global state management tools out of the box, but the recomm
 
 Svelte adopts a unique approach by compiling components into optimized JavaScript during the build process. This compile-time transformation negates the need for runtime Virtual DOM diffing, resulting in improved performance and smaller bundle sizes.
 
+<!-- {% twitter 1057296960246505472 %} -->
+
 ### Store Management in Svelte
 
-Svelte doesn't rely on external state management libraries. Instead, it encourages local component state or using the context API for global state management. In Svelte, components re-render when their local state changes. Context API can also trigger component updates when global state changes, ensuring components reflect the latest data.
+Svelte doesn't rely on external state management libraries. Instead, it encourages local component state or using the context API for global state management. In Svelte, components update when their local state changes. Context API can also trigger component updates when global state changes, ensuring components reflect the latest data.
 
 ## Solid: Embracing Fine-Grained Reactivity
 
-Solid introduces a fine-grained reactivity system that minimizes unnecessary updates. Changes are precisely tracked, allowing only components directly affected by a change to re-render. This approach optimizes performance and avoids the overhead of traditional Virtual DOM diffing.
+Solid introduces a fine-grained reactivity system that minimizes unnecessary updates. Changes are precisely tracked, allowing only DOM elements directly affected by a change to re-render, what Ryan Carniato describes as Fine Grained Reactivity. This approach optimizes performance and avoids the overhead of traditional Virtual DOM diffing.
+
+<!-- {% twitter 1598442561546653698 %} -->
 
 ### Store Management in Solid
 
-Solid provides a unique approach to state management by leveraging its reactivity system. Components re-render only when the data they depend on changes. This efficient reactivity model helps avoid unnecessary re-renders, making Solid an attractive choice for applications that prioritize performance.
+Solid provides a unique approach to state management by leveraging its reactivity system. UI DOM elements re-render only when the data they depend on changes. This efficient reactivity model helps avoid unnecessary re-renders, making Solid an attractive choice for applications that prioritize performance.
 
 ## Conclusion
 
