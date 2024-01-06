@@ -1,7 +1,7 @@
 ---
 import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
-import Search from './Search.svelte';
+// import Search from './Search.svelte';
 
 const props = Astro.props;
 ---
@@ -14,7 +14,7 @@ const props = Astro.props;
       <!-- <HeaderLink href='/blog'>Blog</HeaderLink> -->
       <HeaderLink href='/cv'>About</HeaderLink>
     </div>
-    <Search client:load />
+    <!-- <Search client:load /> -->
     <div class='social-links'>
       <a href='https://github.com/sam-eah' target='_blank'>
         <span class='sr-only'>Go to my GitHub</span>

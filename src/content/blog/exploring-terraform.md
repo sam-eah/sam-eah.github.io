@@ -7,7 +7,7 @@ heroImage: '/terraform.JPG'
 
 ## Introduction
 
-In today's dynamic world of cloud computing, effective infrastructure management is crucial. Enter Terraform, the game-changing "infrastructure as code" (IAC) tool that automates cloud resource deployment and scales operations. This article explores Terraform's advanced features, aimed at readers familiar with its basics.
+In today's dynamic world of cloud computing, effective infrastructure management is crucial. Enter Terraform, the game-changing "infrastructure as code" (IAC) tool that automates cloud resource deployment and scales operations. This article explores Terraform's basic features.
 
 ## Navigating the Terraform Lifecycle
 
@@ -65,6 +65,59 @@ Handling duplicate resource errors during `terraform apply` requires strategic a
 ## Controlled Resets: Managing Tainted Resources
 
 Terraform's tainted resources concept ensures controlled reset. Marked resources are destroyed and recreated on the next `terraform apply`, tackling configuration drifts.
+
+## Organizing Terraform code
+
+Here is the folder/file structure I recommend for terraform projects. This is especially useful if you have many environments/tenants for which you want to run the code.
+
+```
+- envs
+  - dev
+    - tenant_1
+      - main.tf
+    - tenant_2
+      - main.tf
+  prd
+    - tenant_1
+      - main.tf
+
+- remote
+  - data.tf
+  - dynamodb.tf
+  - locals.tf
+  - output.tf
+  - provider.tf
+  - s3.tf
+  - variables.tf
+
+- modules
+  - main
+    - main.tf
+```
+
+You can write all your terraform code into the main module (with one or many files of course), or split it into multiple modules. I've noticed that it's usually easier to write all the code in the same module, split into as many files as you want, unless you have some infra that is really easy to extract from the rest. This way you won't habve to go through the pain of props/variables drilling, circular dependencies and so forth.
+Here is what a `main.tf` file in an env/tenant folder should look like:
+
+```hcl
+terraform {
+  backend "s3" {
+    bucket         = "BUCKET_NAME"
+    dynamodb_table = "DYNAMODB_TABLE"
+    region         = "eu-west-1"
+    key            = "states.json"
+    encrypt        = true
+  }
+}
+
+module "main" {
+  source                  = "../../../modules/main"
+  environment             = "dev"
+  region                  = "eu-west-1"
+  ...
+}
+```
+
+To run the commands, you would have to cd into the appropriate folder. Each env/tenant combo should have it's own folder, for terraform to be able to create the required folders and files. This way no need to re-init each time you want to run against another combo, you just need to cd into the folder. This allows also to run mutliple commands in parallel. I have built a golang CLI tool to do that precisely.
 
 ## Conclusion
 
