@@ -4,6 +4,8 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { ViewTransitions } from 'astro:transitions';
+import '~/assets/styles/tailwind.css';
+import BasicScripts from '~/components/BasicScripts.astro';
 
 import Layout2 from './layout2.svelte';
 ---
@@ -13,8 +15,10 @@ import Layout2 from './layout2.svelte';
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <ViewTransitions />
+    <BasicScripts />
   </head>
-  <body>
+  <body
+    class='antialiased text-default bg-page tracking-tight dark:bg-black dark:text-gray-300'>
     <Header title={SITE_TITLE} />
     <section transition:animate='slide'>
       <Layout2 client:load>

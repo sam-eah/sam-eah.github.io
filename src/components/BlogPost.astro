@@ -10,7 +10,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 <style>
   main {
     width: calc(100% - 2em);
-    /* max-width: 100%; */
     margin: auto;
     padding: 1em 0.5em;
   }
@@ -25,25 +24,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     aspect-ratio: 2/1;
     object-fit: cover;
   }
-  /* .prose {
-    width: 720px;
-    max-width: calc(100% - 2em);
-    margin: auto;
-    padding: 1em;
-    color: rgb(var(--gray-dark));
-  } */
-  /* .title {
-    margin-bottom: 1em;
-    padding: 1em 0;
-    text-align: center;
-    line-height: 1;
-  } */
-  /* .title h1 {
-    margin: 0 0 0.5em 0;
-  } */
   .date {
-    /* margin-bottom: 0.5em; */
-    color: rgb(var(--gray));
   }
   .last-updated-on {
     font-style: italic;
@@ -63,16 +44,11 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
             alt=''
           />
         ) : (
-          <img
-            width={1020}
-            height={510}
-            src='blog-placeholder-about.jpg'
-            alt=''
-          />
+          <img width={1020} height={510} src='old_computer.png' alt='' />
         )
       }
     </div>
-    <div class='sm:prose prose-sm m-auto'>
+    <div class='prose xl:prose-xl m-auto'>
       <div class='text-center'>
         <div class='date'>
           <FormattedDate transition:name={`date:${pubDate}`} date={pubDate} />
@@ -84,10 +60,15 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
             )
           }
         </div>
-        <h1 transition:name={`title:${title}`}>{title}</h1>
+        <h1 class='dark:text-gray-300' transition:name={`title:${title}`}>
+          {title}
+        </h1>
         <hr />
       </div>
-      <slot />
+      <div
+        class='text-justify mx-auto prose xl:prose-xl dark:prose-invert dark:prose-headings:text-slate-300 prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-img:rounded-md prose-img:shadow-lg mt-8'>
+        <slot />
+      </div>
     </div>
   </article>
 </main>
