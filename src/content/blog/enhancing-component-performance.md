@@ -60,7 +60,7 @@ However, it's crucial to use memoization judiciously to avoid unnecessary overhe
 
 It must be note that, while react is becoming one of the hardest framework to optimize, it's backbone is not planned to be updated by the team (unlike the next framework of this list).
 
-<!-- {% twitter 1626590880126889984 %} -->
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">We might add a signals-like primitive to React but I don’t think it’s a great way to write UI code. It’s great for performance. But I prefer React’s model where you pretend the whole thing is recreated every time. Our plan is to use a compiler to achieve comparable performance.</p>&mdash; Andrew Clark (@acdlite) <a href="https://twitter.com/acdlite/status/1626590880126889984?ref_src=twsrc%5Etfw">February 17, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 However there have been some work for quite a while for a compiler automating all the memoization when possible, called **react forget**, but no date to the horizon (it's actually been while since we haven't got any news, maybe _react forgot_)
 
@@ -84,7 +84,7 @@ Angular, like React, adopts the concept of a virtual DOM, but it implements it u
 
 Angular's change detection comes in two flavors: the default "_CheckAlways_" strategy and the more efficient "_OnPush_" strategy. The former triggers rerenders whenever any changes occur, whereas the latter focuses on input property changes and event triggers. Change detection might change with the recent introduction of **signals**, that should make _zone.js_ no longer useful in angular.
 
-<!-- {% twitter 1625939902046117890 %} -->
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Today we are excited to open the first PR of our exploration into fine-grained reactivity! 🚦<br><br>This is the foundation to allow prototyping &amp; amplify the value of an upcoming RFC on our plans to introduce a new reactive primitive into Angular.<br><br>Read more: <a href="https://t.co/juKz9phIFP">https://t.co/juKz9phIFP</a></p>&mdash; Angular (@angular) <a href="https://twitter.com/angular/status/1625939902046117890?ref_src=twsrc%5Etfw">February 15, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ### Store Management in Angular
 
@@ -96,7 +96,7 @@ Vue.js also embraces the Virtual DOM, with components updating when changes in s
 
 However, vue is the first framework on this list to leverage fined-grained reactivity. This means that components should, out of the box, only update UI DOM elements that changed.
 
-<!-- {% twitter 1469141353309224962 %} -->
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I believe this is true for Svelte / Solid as well: for fine-grained reactivity systems, whether runtime or compile time, it is very rare for the user to have to think about manually optimizing over-renders across component boundaries.</p>&mdash; Evan You (@youyuxi) <a href="https://twitter.com/youyuxi/status/1469141353309224962?ref_src=twsrc%5Etfw">December 10, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 There are still ways to help optimize Vue's performance:
 
@@ -111,7 +111,7 @@ Vue doesn't provide global state management tools out of the box, but the recomm
 
 Svelte adopts a unique approach by compiling components into optimized JavaScript during the build process. This compile-time transformation negates the need for runtime Virtual DOM diffing, resulting in improved performance and smaller bundle sizes.
 
-<!-- {% twitter 1057296960246505472 %} -->
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I feel that variable assignments triggering updates is still quite a stretch 😅</p>&mdash; Evan You (@youyuxi) <a href="https://twitter.com/youyuxi/status/1057295588973273088?ref_src=twsrc%5Etfw">October 30, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ### Store Management in Svelte
 
@@ -121,7 +121,7 @@ Svelte doesn't rely on external state management libraries. Instead, it encourag
 
 Solid introduces a fine-grained reactivity system that minimizes unnecessary updates. Changes are precisely tracked, allowing only DOM elements directly affected by a change to re-render, what Ryan Carniato describes as Fine Grained Reactivity. This approach optimizes performance and avoids the overhead of traditional Virtual DOM diffing.
 
-<!-- {% twitter 1598442561546653698 %} -->
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">A couple months back, <a href="https://twitter.com/solid_js?ref_src=twsrc%5Etfw">@solid_js</a> core member Milo(modderme) told me he wanted to explore how to improve the performance of fine-grained reactivity.<br><br>TLDR; He succeeded. And now he&#39;s showing us how. The amazing article explains how he wrote the fastest lib.<a href="https://t.co/KCppsS3oQH">https://t.co/KCppsS3oQH</a></p>&mdash; Ryan Carniato (@RyanCarniato) <a href="https://twitter.com/RyanCarniato/status/1598442561546653698?ref_src=twsrc%5Etfw">December 1, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ### Store Management in Solid
 
