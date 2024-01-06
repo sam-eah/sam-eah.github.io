@@ -159,7 +159,7 @@ RDS resources
 `rds.py`
 
 ```py
-class RDSResource:
+class RDSResource(Resource):
     tag: str = None
     resources = []
     format = "RDS"
@@ -252,7 +252,7 @@ class RDSResource:
 ### EC2
 
 ```py
-class EC2Resource:
+class EC2Resource(Resource):
     tag: str = None
     resources = []
     """
@@ -319,7 +319,7 @@ class EC2Resource:
 ### Redshift cluster
 
 ```py
-class RSResource:
+class RSResource(Resource):
     tag: str = None
     resources = []
     """
@@ -439,7 +439,7 @@ def check_redshift_stopped(redshift_id):
 ### Cloudwatch alarms
 
 ```py
-class CWResource:
+class CWResource(Resource):
     tag: str = None
     resources = []
     format = "CW"
