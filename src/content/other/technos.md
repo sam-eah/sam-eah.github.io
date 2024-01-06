@@ -34,7 +34,7 @@ heroImage: '/old_computer.png.jpg'
 
 |                |                                             |
 | -------------- | ------------------------------------------- |
-| SQL DB         | MySQL, Postgres, MSSQL Server               |
+| SQL DB         | MySQL, Postgres, MSSQL Server, SQLite       |
 | NoSQL DB       | DynamoDB, MongoDB, FireStore, ElasticSearch |
 | DB cache       | Redis                                       |
 | Data Warehouse | AWS Redshift, Google BigQuery, Snowflake    |
