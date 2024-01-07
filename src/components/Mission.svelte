@@ -13,8 +13,19 @@
 
 <details class="border-gray-500 border rounded-md p-2">
   <summary>
-    <span>{position}, {location} - {company}</span>
-    <div class="text-right">{dates}</div>
+    <span>
+      <span class="font-bold">{position}</span>
+      {#if location}
+        <div>📍 {location}</div>
+      {/if}
+
+      {#if company}
+        <div>💼 {company}</div>
+      {/if}
+    </span>
+    {#if dates}
+      <div class="text-right">📅 {dates}</div>
+    {/if}
   </summary>
   <div class="content">
     <div>
