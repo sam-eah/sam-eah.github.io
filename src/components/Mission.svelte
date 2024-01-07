@@ -11,7 +11,7 @@
   export let missions: any[] = [];
 </script>
 
-<details class="border-black border rounded-md p-2">
+<details class="border-gray-500 border rounded-md p-2">
   <summary>
     <span>{position}, {location} - {company}</span>
     <div class="text-right">{dates}</div>
