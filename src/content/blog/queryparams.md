@@ -1,7 +1,7 @@
 ---
 title: 'In defense of Query Params'
 description: ''
-pubDate: 'Jul 16 2023'
+pubDate: 'Jul 15 2023'
 heroImage: '/90s_pc.png'
 ---
 
