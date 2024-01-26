@@ -8,15 +8,13 @@ heroImage: '/data_center.png'
 We're going to use a lambda to turn off resources during the night time.
 Since we're using the same actions on different resources, this a good opportunity to use a factory pattern.
 
-Each resource group will have a method to get/update it's resources, a method to start them, one to stop them, and one to tag them. There will also have one to convert them to a readable list, useful for logging
+Each resource group will have a method to get/update it's resources, a method to start them, one to stop them, and one to tag them. We'll also add a method to convert the list of ressources into readable items, useful for logging/debugging.
 
 First let's write the base resource class:
 
 `resource.py`
 
 ```py
-asg = boto3.client("autoscaling")
-
 class Resource:
     tag: str = None
     resources = []
@@ -159,6 +157,10 @@ RDS resources
 `rds.py`
 
 ```py
+from resource import Resource
+
+rds = boto3.client("rds")
+
 class RDSResource(Resource):
     tag: str = None
     resources = []
@@ -252,6 +254,10 @@ class RDSResource(Resource):
 ### EC2
 
 ```py
+from resource import Resource
+
+ec2 = boto3.client("ec2")
+
 class EC2Resource(Resource):
     tag: str = None
     resources = []
@@ -319,6 +325,10 @@ class EC2Resource(Resource):
 ### Redshift cluster
 
 ```py
+from resource import Resource
+
+rs = boto3.client("redshift")
+
 class RSResource(Resource):
     tag: str = None
     resources = []
@@ -439,6 +449,10 @@ def check_redshift_stopped(redshift_id):
 ### Cloudwatch alarms
 
 ```py
+from resource import Resource
+
+cw = boto3.client("cloudwatch")
+
 class CWResource(Resource):
     tag: str = None
     resources = []
