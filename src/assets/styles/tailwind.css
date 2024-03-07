@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+p {
+  text-align: justify;
+}
+
 @layer utilities {
   .bg-page {
     background-color: var(--aw-color-bg-page);

@@ -24,6 +24,7 @@ heroImage: '/old_computer.png.jpg'
 
 |                    |                                                             |
 | ------------------ | ----------------------------------------------------------- |
+| Web Servers        | Nginx, Apache                                               |
 | Frameworks         | Express, Nest, Fastify, Django (Python), ASP .Net Core (C#) |
 | Python web servers | Daphne (ASGI), Gunicorn (WSGI)                              |
 | API                | REST / Graph QL, Websocket, webRTC, tRPC                    |
@@ -32,30 +33,35 @@ heroImage: '/old_computer.png.jpg'
 
 ### Data
 
-|                |                                             |
-| -------------- | ------------------------------------------- |
-| SQL DB         | MySQL, Postgres, MSSQL Server, SQLite       |
-| NoSQL DB       | DynamoDB, MongoDB, FireStore, ElasticSearch |
-| DB cache       | Redis                                       |
-| Data Warehouse | AWS Redshift, Google BigQuery, Snowflake    |
-| ETL            | Apache Airflow                              |
+|                  |                                             |
+| ---------------- | ------------------------------------------- |
+| SQL DB           | MySQL, Postgres, MSSQL Server, SQLite       |
+| NoSQL DB         | DynamoDB, MongoDB, FireStore, ElasticSearch |
+| DB cache         | Redis                                       |
+| Data Warehouse   | AWS Redshift, Google BigQuery, Snowflake    |
+| ETL              | Apache Airflow                              |
+| Python libraries | Pandas, NumPy, SciPy, matplotlib            |
 
 ### DevOps
 
-|                        |                                                           |
-| ---------------------- | --------------------------------------------------------- |
-| Tooling (scripts)      | sh, bash, zsh, powershell, python, go                     |
-| Versioning             | Gitlab, Github, Azure Devops, Bitbucket                   |
-| CI / CD Pipelines      | Gilab CI, Azure Devops, Github Actions, TeamCity, Octopus |
-| Web Servers            | Nginx, Apache                                             |
-| Containerization       | Docker                                                    |
-| Orchestration          | Docker Compose, _Kubernetes_                              |
-| Cloud Providers        | AWS, Azure, GCP, Firebase, OVH                            |
-| Infrastructure as code | Terraform, Kotlin                                         |
-| Monorepo               | Nx, Turborepo, lerna, workspaces (pnpm, yarn, bun)        |
-| Monitoring & Reporting | Cloudwatch, Sentry, New Relic, Kibana, LogStash           |
-| Message Queue          | AWS Simple Queue Service, _Apache Kafka_, _RabbitMQ_      |
-| Cloud Functions        | AWS Lambda, Firebase Functions                            |
+|                                          |                                                           |
+| ---------------------------------------- | --------------------------------------------------------- |
+| Tooling (scripts)                        | sh, bash, zsh, powershell, python, go                     |
+| Versioning                               | Gitlab, Github, Azure Devops, Bitbucket                   |
+| Monorepo                                 | Nx, Turborepo, lerna, workspaces (pnpm, yarn, bun)        |
+| Logging, Monitoring, Reporting, Alerting | Cloudwatch, Sentry, New Relic, Kibana, LogStash           |
+| CI / CD Pipelines                        | Gilab CI, Azure Devops, Github Actions, TeamCity, Octopus |
+| Containerization                         | Docker                                                    |
+| Orchestration                            | Docker Compose, _Kubernetes_                              |
+
+### Cloud Infrastructure
+
+|                        |                                                      |
+| ---------------------- | ---------------------------------------------------- |
+| Cloud Providers        | AWS, Azure, GCP, Firebase, OVH                       |
+| Infrastructure as code | Terraform, Kotlin                                    |
+| Cloud Functions        | AWS Lambda, Firebase Functions                       |
+| Message Queue          | AWS Simple Queue Service, _Apache Kafka_, _RabbitMQ_ |
 
 ### Auth
 
@@ -87,14 +93,16 @@ heroImage: '/old_computer.png.jpg'
 | Distributed computing   | _MapReduce_, _Apache Spark_ |
 | Streaming               | _Apache Kafka_              |
 
-<!-- |                  |                     |
+<!-- 
+|                  |                     |
 | ---------------- | ------------------- |
 | Data architecure | Lambda Architecture |
 | Batch Layer      | Data Lake           |
 | Serving Layer    | NoSQL               |
-| Speed Layer      | NoSQL               | -->
+| Speed Layer      | NoSQL               |
 
-<!-- |                   |                                                      |
-| ----------------- | ---------------------------------------------------- |
-| Real time         |                                                      |
-| Stream processing | _Apache Storm_                                       | -->
+|                   |                |
+| ----------------- | -------------- |
+| Real time         |                |
+| Stream processing | _Apache Storm_ |
+-->

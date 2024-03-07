@@ -189,5 +189,20 @@
         "stack": "React.js · Next.js · Typescript · Docksal · pnpm workspaces"
       }
     ]
+  },
+  
+  {
+    "position": "Devops Engineer",
+    "company": "Green Island",
+    "location": "Brussels",
+    "dates": "AUG 2023 – FEB 2024",
+    "description": "Gambling Facilities and Casinos.",
+    "tasks": [
+      "Cloud infrastructure (as code)",
+      "Build & Deploy Pipelines",
+      "Logging, Monitoring, Alerting, Analysis",
+      "Cost optimization"
+    ],
+    "stack": "AWS · Docker · Terraform · TeamCity · Jenkins · CircleCI Octopus Deploy · Python · Go · Sentry · New Relic · Monorepo"
   }
 ]
