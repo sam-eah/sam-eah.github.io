@@ -1,6 +1,4 @@
 <script lang="ts">
-  import MissionList from './MissionList.svelte';
-
   export let position: string = '';
   export let company: string | undefined = '';
   export let location: string | undefined = '';
@@ -8,7 +6,6 @@
   export let description: string | undefined = '';
   export let tasks: string[] = [];
   export let stack: string | undefined = '';
-  export let missions: any[] = [];
 </script>
 
 <details class="border-gray-500 border rounded-md p-2">
@@ -39,7 +36,9 @@
       </ul>
       <h5>{stack}</h5>
 
-      <MissionList {missions} />
+      <div class="flex flex-col gap-6">
+        <slot />
+      </div>
     </div>
   </div>
 </details>

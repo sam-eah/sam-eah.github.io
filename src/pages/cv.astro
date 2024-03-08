@@ -2,13 +2,8 @@
 import BlogPost from '../components/BlogPost.astro';
 import Layout from '../layouts/layout.astro';
 
-import cv from '../data/cv.json';
-import MissionList from '../components/MissionList.svelte';
-
-// const cvr = cv.toReversed();
-const missions = [...cv].reverse();
-
 import * as myPost from '../content/other/technos.md';
+import Mission from '~/components/Mission.svelte';
 const { Content } = myPost;
 ---
 
@@ -18,7 +13,232 @@ const { Content } = myPost;
     description='Lorem ipsum dolor sit amet'
     heroImage='/old_computer.png'
     pubDate={new Date()}>
-    <MissionList client:load {missions} />
+    <div class='flex flex-col gap-6'>
+      <Mission
+        position='Devops Engineer'
+        company='Green Island'
+        location='Brussels'
+        dates='AUG 2023 – FEB 2024'
+        description='Gambling Facilities and Casinos.'
+        tasks={[
+          'Cloud infrastructure (as code)',
+          'Build & Deploy Pipelines',
+          'Logging, Monitoring, Alerting, Analysis',
+          'Cost optimization',
+        ]}
+        stack='AWS · Docker · Terraform · TeamCity · Jenkins · CircleCI Octopus Deploy · Python · Go · Sentry · New Relic · Monorepo'
+      />
+
+      <Mission
+        position='Project Manager'
+        company='Futurmap'
+        location='Antananarivo'
+        dates='APR 2021 – APR 2023'
+        description="Futurmap is today's French leader in geographic data processing, 2D digitization and 3D modelling."
+        teamSize='5 full stack devs'>
+        <Mission
+          position='Lead Developer NextJS'
+          company='Tango Lu'
+          location='Antananarivo'
+          dates='DEC 2022 – MAR 2023'
+          description='First alternative operator in Luxembourg, Tango offers mobile, internet and TV solutions.'
+          tasks={[
+            'Redesigning the front of the website with clean architecture and server side rendered components with nextJS.',
+            'Integration for a sylius backend and a Strapi CMS.',
+            'Internationalisation of the application.',
+            'Using a Monorepo for ts projects (next and strapi)',
+          ]}
+          teamSize='3 full stack devs'
+          stack='React.js · Next.js · Typescript · Docksal · pnpm workspaces'
+        />
+        <Mission
+          position='Lead Developer Nuxt'
+          company='IPOPI'
+          location='Antananarivo'
+          dates='FEB 2022 – MAY 2022'
+          description='IPOPI’s 4ID helps you manage and monitor your health.'
+          tasks={[
+            'Rebuilt the application with vue3 composition api (fine-grained reactivity) and framework7',
+            'following web best practices',
+            'implementing end-to-end tests',
+            'CI/CD pipelines',
+            'tailwind CSS',
+            'Migrating to vite module blunder',
+            'Pwa',
+            'Store with pinia',
+          ]}
+          teamSize='3 full stack devs'
+          stack='Nuxt · Vue.js · Framework7 · Typescript'
+        />
+        <Mission
+          position='PM - Delivery Platform'
+          description='Used to deliver all kind of files to Futurmap’s clients.'
+          tasks={[
+            'Fully capable file explorer',
+            'Web sockets for folder update',
+            '2D/3D file viewers',
+            'Project geolocation on map',
+            'Containerisation with docker and compose ',
+            'CI/CID pipelines with gitlab ',
+            'Authentication, guest users, project sharing',
+            'Roles and permissions management',
+            'Connexion to custom ERP and to pipedrive',
+            'Automatic email delivery with customisable template',
+            'Migrating from ovh to aws (ec2, rds, s3, open search, …)',
+            'Using nginx to serve angular front then migrating to s3',
+            'Batch file upload to s3',
+            'Search engine using kibana elastic search (first dockerized on the server then using opensearch service on aws)',
+            'Typescript rxjs, functional declarative programming ',
+            'ngneat query (based on Tanstack query, react query’s under layer) for fetching, caching, revalidating queries ',
+            'Material and tailwind css for style ',
+            'Angular services as store ',
+            'Keeping libraries up to date, (for angular: standalone components, async imports, inject, …)',
+            'Data analysis with an automated ETL generating tables for data analysts',
+          ]}
+          teamSize='5 full stack devs'
+          stack='Angular · Django · Project Management · Typescript · Amazon Web Services (AWS) · Data Analysis'
+        />
+        <Mission
+          position='PM- QGIS plugins'
+          description='Custom QGIS plugins'
+          tasks={['Automate GIS treatments', 'python multithreading']}
+          teamSize='2 GIS devs'
+          stack='QGIS · python'
+        />
+        <Mission
+          position='Formations - Trainer'
+          description='Giving different formations to junior devs and data analysts'
+          tasks={[
+            'Web technologies (angular, react, vue, next, nestjs, orms, graphql), design models, common data structures and best practices',
+            'Geographic Information System and the Web  (openlayers, mapbox, maplibre, turf.js, GeoDjgango, pyQgis, GDAL, ogr2ogr)',
+            'Data Analysis & Business Intelligence (building ETLs in python and SQL, visualisation with Power BI)',
+          ]}
+          stack='Angular · Django · Typescript · Data Analysis'
+        />
+      </Mission>
+      <Mission
+        position='Full Stack Web Developer'
+        company='HAWAII'
+        location='PARIS'
+        dates='JAN 2020 – MAR 2021'
+        description='Hawaii is a consulting company specialized in Microsoft & .NET technologies.'
+        teamSize='6 full stack devs'>
+        <Mission
+          position='Lead Developer ReactJS'
+          company='FFGolf'
+          location='PARIS'
+          dates='SEP 2020 – JAN 2021'
+          description='French Gold Federation'
+          tasks={[
+            'Development of all the components of the new Web Application of the Fench Golf Federation',
+            "Development of the application's Front-end",
+            'Implementationof a complex Redux store',
+            'Creation of multiple themes (colors, fonts, logos, ...) as well as dark modes for each theme',
+          ]}
+          stack='ReactJs · Redux · React Hooks · React-router · Next · Material-UI · HTML · CSS · Git · Azure DevOps · Jira'
+          teamSize='3 devs'
+        />
+        <Mission
+          position='Developer Sharepoint/ReactJS'
+          company='TRAJEO’H (VINCI)'
+          location='PARIS'
+          dates='JAN 2020 - MAR 2020'
+          description="Trajeo'h is an associative structure dedicated to maintaining employment, reclassifying and recruiting people with disabilities."
+          tasks={[
+            'Full stack development of a monitoring form management application',
+            'Possibility to search, modify, add, close and duplicate SharePoint custom cards via the application',
+            'Reporting of files using personalized views',
+            'Automated provisioning of SharePoint lists in JavaScript.',
+          ]}
+          stack='Sharepoint · JavaScript · ReactJs'
+          teamSize='solo dev'
+        />
+        <Mission
+          position='Developer C# .Net Core'
+          tasks={[
+            "Keeping Hawaii's website efficient and up to date, automate tasks with CI/CD pipelines, ... Development of contact forms in AJAX",
+            "Code refactoring and technological upgrade of Hawaii's website",
+            'Modernising the front with VueJS components',
+            "Working on the site's responsiveness and cross browser testing.",
+          ]}
+          stack='C# ASP.Net Core · Razor · JavaScript · jQuery · Ajax · HTML · CSS · Bootstrap · SendGrid'
+        />
+      </Mission>
+      <Mission
+        position='Solo Dev'
+        company='Bary'
+        location='Paris'
+        dates='SEP 2019 – DEC 2019'
+        description='Trip generator'
+        tasks={[
+          'Using Firestore NoSQL Database with realtime updates',
+          'Using Firebase auth',
+          'Deployment to Firebase Cloud Functions for server side rendering and API hosting',
+          'Frontend in Vue with Vuetify UI library',
+        ]}
+        stack='Nuxt · Vue · Firebase · Firestore · Vuetify'
+      />
+      <Mission
+        position='Data Analyst (intern)'
+        company='UMNIAH'
+        location='AMMAN'
+        dates='OCT 2018 – APR 2019'
+        description='Umniah is one of the main network operators in Jordan'
+        tasks={[
+          "Behavioural studies of Umniah's mobile network users",
+          'Data analysis',
+          'Business intelligence',
+          'Development of prediction models using machine learning.',
+        ]}
+        stack='SAS · SAS Enterprise Guide · SAS Enterprise Miner · PowerBI · Microsoft Access · Microsoft Excel'
+      />
+      <Mission
+        position='Game Developer (intern)'
+        company='GAMIPHY'
+        location='RAMALLAH'
+        dates='JUL 2018 - AUG 2018'
+        description='Gamiphy is a gamification company.'
+        tasks={['Development of minigames in JavaScript using PhaserJS']}
+        stack='JavaScript · jQuery · PhaserJs'
+      />
+      <Mission
+        position='Web Developer C#.Net/SQL (intern)'
+        company='AL-GHASSAN INFORMATION SYSTEMS'
+        location='RAMALLAH'
+        dates='JUN 2018 – JUL 2018'
+        description=''
+        tasks={[
+          'Development of a logistics webapp.',
+          'Establishment of a transport network database.',
+          'Route calculation, hotel room management, ...',
+        ]}
+        stack='C# ASP.NET Core · Telerik UI · HTML · CSS · JS'
+      />
+      <Mission
+        position='Software Developer (contractor)'
+        company='INSERM'
+        location='PARIS'
+        dates='JUL 2017 - AUG 2017'
+        description=''
+        tasks={[
+          'Development of an application with a GUI for managing INSERM agents',
+          'Migration from Access database to MSSQL Server database',
+          'Migration from MSSQL Server migration to MySQL database',
+        ]}
+        stack='VBA · SQL · MySQL · phpMyAdmin · Microsoft SQL Server'
+      />
+      <Mission
+        position='Software Developer (intern)'
+        company='INSERM'
+        location='PARIS'
+        dates='JUL 2016 – AUG 2016'
+        description=''
+        tasks={[
+          'Development of a desktop application with a graphical interface for managing INSERM (National Institute of Health and Medical Research) applications.',
+        ]}
+        stack='C++ · Qt · SQL · MySQL · phpMyAdmin'
+      />
+    </div>
 
     <Content />
   </BlogPost>
