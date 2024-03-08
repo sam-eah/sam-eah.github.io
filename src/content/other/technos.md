@@ -14,10 +14,10 @@ heroImage: '/old_computer.png.jpg'
 | JS Frameworks            | Vue, React, Angular, Svelte, Solid, Astro                        |
 | JS Meta Frameworks       | Nuxt, Next, Analog, Svelte Kit, Solid Start                      |
 | State Management (Store) | Redux, Vuex, Pinia, Jotai, Zustand, Nano Stores                  |
-| Fetch tools              | TanStack Query (react query, ngneat query), Apollo, fetch, axios |
-| CSS                      | Tailwind, Vuetify, Material UI, Material, Framework7             |
+| Integration              | TanStack Query (react query, ngneat query), Apollo, fetch, axios |
+| UI libraries             | Tailwind, Vuetify, Material UI, Material, Framework7             |
 | Module Bundlers          | Webpack, Rollup, Vite, Nitro, (turbopack)                        |
-| Tests                    | Storybook, Karma, Jasmine, Selenium, Cypress                     |
+| Testing                  | Storybook, Karma, Jasmine, Selenium, Cypress                     |
 | Mobile                   | PWA, _React Native_, _Flutter_                                   |
 
 ### Backend
@@ -33,14 +33,14 @@ heroImage: '/old_computer.png.jpg'
 
 ### Data
 
-|                  |                                             |
-| ---------------- | ------------------------------------------- |
-| SQL DB           | MySQL, Postgres, MSSQL Server, SQLite       |
-| NoSQL DB         | DynamoDB, MongoDB, FireStore, ElasticSearch |
-| DB cache         | Redis                                       |
-| Data Warehouse   | AWS Redshift, Google BigQuery, Snowflake    |
-| ETL              | Apache Airflow                              |
-| Python libraries | Pandas, NumPy, SciPy, matplotlib            |
+|                  |                                              |
+| ---------------- | -------------------------------------------- |
+| SQL DB           | MySQL, Postgres, MSSQL Server, SQLite        |
+| NoSQL DB         | DynamoDB, MongoDB, FireStore, ElasticSearch  |
+| DB cache         | Redis                                        |
+| ETL              | Apache Airflow                               |
+| Python libraries | Pandas, NumPy, SciPy, matplotlib             |
+| Data Warehouse   | AWS Redshift, _Google BigQuery_, _Snowflake_ |
 
 ### DevOps
 
