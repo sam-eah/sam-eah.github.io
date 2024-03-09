@@ -5,13 +5,13 @@ pubDate: 'Jul 15 2023'
 heroImage: '/90s_pc.png'
 ---
 
-It is consistently intriguing to observe the limited utilization of URLs in describing the state within web applications. Despite the fact that, in my perspective, URLs should serve as the default method for state storage. URLs possess the capacity to be stored, shared, and navigated through browser history using back and forward functionalities.
+It's always interesting to notice how web applications often don't make the most of using website addresses (URLs) to show what's happening on a page. In my opinion, URLs should be the go-to way to keep track of what's going on. They can be saved, shared, and easily moved through by using the browser's back and forward buttons.
 
-While alternative approaches such as local storage, session storage, or cookies exist for state storage, they lack the capability to seamlessly revert to a previous state through browser history or facilitate state sharing via URL sharing. These alternatives are better suited for relatively static states that are likely to persist between sessions, with the exception of session storage, which may not always prove particularly advantageous.
+Even though there are other ways like local storage, session storage, or cookies to store information, they don't let you smoothly go back to a previous state using the browser history or easily share the state through a URL. These options work better for things that don't change much between visits, except for session storage, which might not always be very useful.
 
-It is imperative to consider incorporating a state parameter via URL unless there is a negligible value addition. For instance, the state of elements like drawers, menus, or accordions may not necessarily require persistent storage. A practical approach to evaluate this is to contemplate whether, when sharing the page as a URL, the recipient will observe the intended state, assuming proper authentication if required.
+It's important to think about adding a state parameter to the URL unless it doesn't really add much value. For example, the state of things like drawers, menus, or accordions might not need to be saved all the time. A good way to decide is to think about whether someone else, when they open the URL you shared, will see the page exactly how you intended, assuming they have the right permissions.
 
-Notably, modal dialogs are typically elements one would prefer to be visible when shared, making them suitable candidates for URL-based state representation. However, many applications tend to store their states within variables, diminishing their overall versatility.
+One thing to note is that modal dialogs (those pop-up boxes) are usually something you'd want to show when sharing a URL. But many applications keep track of their states in a way that doesn't make them very flexible.
 
 Here is a Nuxt/Vue composable I wrote to exploit query params easily.
 

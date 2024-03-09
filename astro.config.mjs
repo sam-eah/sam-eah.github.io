@@ -5,6 +5,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 import tailwind from '@astrojs/tailwind';
+// import mdx from '@astrojs/mdx';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -12,6 +13,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
   site: 'https://sam-eah.github.io',
   integrations: [
+    // mdx(),
     prefetch(),
     svelte(),
     tailwind({
