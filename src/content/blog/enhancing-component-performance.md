@@ -2,6 +2,7 @@
 title: 'Enhancing Component Performance in JavaScript Frontend Frameworks'
 description: ''
 pubDate: 'Aug 21 2023'
+editDate: 'Mar 09 2024'
 heroImage: '/js-frameworks.jpg'
 ---
 
@@ -62,7 +63,13 @@ It must be note that, while react is becoming one of the hardest framework to op
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">We might add a signals-like primitive to React but I don’t think it’s a great way to write UI code. It’s great for performance. But I prefer React’s model where you pretend the whole thing is recreated every time. Our plan is to use a compiler to achieve comparable performance.</p>&mdash; Andrew Clark (@acdlite) <a href="https://twitter.com/acdlite/status/1626590880126889984?ref_src=twsrc%5Etfw">February 17, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-However there have been some work for quite a while for a compiler automating all the memoization when possible, called **react forget**, but no date to the horizon (it's actually been while since we haven't got any news, maybe _react forgot_)
+However there have been some work for quite a while for a compiler automating all the memoization when possible, called **react forget**, but no date to the horizon (it's actually been while since we haven't got any news, maybe _react forgot..._)
+
+---
+
+_**EDIT:** Turns out React hasn't forgot, new compilation mode is being tried by meta. This will help getting rid of useMemo, useCallbacks, and everything related, by doing automated memoisation at compilation._
+
+---
 
 ### React Store Management Libraries
 
@@ -86,9 +93,15 @@ Angular's change detection comes in two flavors: the default "_CheckAlways_" str
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Today we are excited to open the first PR of our exploration into fine-grained reactivity! 🚦<br><br>This is the foundation to allow prototyping &amp; amplify the value of an upcoming RFC on our plans to introduce a new reactive primitive into Angular.<br><br>Read more: <a href="https://t.co/juKz9phIFP">https://t.co/juKz9phIFP</a></p>&mdash; Angular (@angular) <a href="https://twitter.com/angular/status/1625939902046117890?ref_src=twsrc%5Etfw">February 15, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+---
+
+_**EDIT:** Signals are now realeased and production ready. Let's see what happens to Zone.js in Angular!_
+
+---
+
 ### Store Management in Angular
 
-In Angular, components are seamlessly connected to the store, which acts as a centralized state management solution. Components automatically subscribe to changes in the store's state. When state changes occur and the store emits new values through observables, subscribed components re-render to reflect the updated data. To optimize performance, it's recommended to use the "OnPush" change detection strategy and consider the specific parts of the state required by a component. This selective subscription helps prevent unnecessary re-renders when unrelated parts of the state change.
+In Angular, components can be seamlessly connected to services, which can act as centralized state management solutions (stores). When state changes occur and the store emits new values through RxJs observables (or subjects, behaviourSubjects, ...), subscribed components re-render to reflect the updated data. To optimize performance, it's recommended to use the "OnPush" change detection strategy and consider the specific parts of the state required by a component. This selective subscription helps prevent unnecessary re-renders when unrelated parts of the state change.
 
 ## Vue's Vue on Component Updates
 
@@ -103,6 +116,12 @@ There are still ways to help optimize Vue's performance:
 - Leverage directives like `v-once` for components that never require updates.
 - Explore `v-memo`, similar to React's memoization, for fine-grained control over rerenders.
 
+---
+
+_**EDIT:** Vue seems to be going towards getting rid of VDom as well, with the introduction of Vapor. Let's keep updated._
+
+---
+
 ### Store Management in Vue
 
 Vue doesn't provide global state management tools out of the box, but the recommended one is Pinia (for Vue 3). Components consuming state from Pinia stores re-render only when the state they are using changes. This selective reactivity minimizes unnecessary re-renders in components that are not affected by specific state changes.
@@ -112,6 +131,12 @@ Vue doesn't provide global state management tools out of the box, but the recomm
 Svelte adopts a unique approach by compiling components into optimized JavaScript during the build process. This compile-time transformation negates the need for runtime Virtual DOM diffing, resulting in improved performance and smaller bundle sizes.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">I feel that variable assignments triggering updates is still quite a stretch 😅</p>&mdash; Evan You (@youyuxi) <a href="https://twitter.com/youyuxi/status/1057295588973273088?ref_src=twsrc%5Etfw">October 30, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+---
+
+_**EDIT:** With the introduction of runes in Svelte 5, the use of a signal-like primitive is now completefly explicit. It makes usage of those way easier, inside and outside `.svelte` files!_
+
+---
 
 ### Store Management in Svelte
 
