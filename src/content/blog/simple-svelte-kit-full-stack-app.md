@@ -2,7 +2,7 @@
 title: 'Simple SvelteKit Full Stack App'
 description: ''
 pubDate: 'Jul 03 2023'
-heroImage: '/stores.png'
+heroImage: '/sveltekit.JPG'
 ---
 
 
