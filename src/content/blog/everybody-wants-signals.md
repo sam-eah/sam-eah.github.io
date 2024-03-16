@@ -1,7 +1,7 @@
 ---
 title: 'Everybody wants Signals'
 description: ''
-pubDate: 'Jul 03 2023'
+pubDate: 'Feb 03 2023'
 heroImage: '/solidjs.JPG'
 ---
 
@@ -25,10 +25,20 @@ While Angular embraces signals as a reactive primitive, opting for a more stream
 
 Related Resources: [I Changed My Mind: Angular Needs a Reactive Primitive](https://dev.to/this-is-angular/i-changed-my-mind-angular-needs-a-reactive-primitive-n2g)
 
-### React's Alternative Approach:
-In contrast, React has opted to maintain its distinct methodology, steering clear of signals. Instead, React relies on reinterpreting component code upon each rerender, a process that can introduce performance overhead. To address this challenge, the React team is actively developing "React Forgot," a compiler aimed at optimizing performance by mitigating the need for repetitive code interpretation.
+### Vue.js: Integrating Signals with Elegance:
+Vue.js, renowned for its simplicity and versatility, seamlessly integrates signals into its reactive ecosystem. Through its reactivity system, Vue.js empowers developers to create dynamic user interfaces with ease, leveraging signals to track dependencies and trigger updates efficiently. Vue.js' intuitive approach to signals exemplifies its commitment to empowering developers with powerful yet accessible tools for building modern web applications.
 
-Related Resource: [A Developer's Insight into React's Challenges and Solutions](https://youtu.be/lGEMwh32soc)
+Related Resource: [Vue.js's Reactivity in Depth](https://vuejs.org/guide/extras/reactivity-in-depth.html)
+
+### React's Alternative Approach:
+In contrast, React has opted to maintain its distinct methodology, steering clear of signals. Instead, React relies on reinterpreting component code upon each rerender, a process that can introduce performance overhead. To address this challenge, the React team is actively developing "React Forget," a compiler aimed at optimizing performance by mitigating the need for repetitive code interpretation.
+
+Related Resource: [React Without Memo at React Conf 2021](https://youtu.be/lGEMwh32soc)
+
+### Preact: Leveraging Signals for Lightweight Reactivity:
+Preact, is a fast and lightweight alternative to React, but it decided to embrace the power of signals for managing reactivity. With its small footprint and focus on performance, Preact leverages signals to efficiently track state changes and optimize rendering. By incorporating signals into its core architecture, Preact provides developers with a powerful yet resource-efficient solution for building responsive user interfaces.
+
+Related Resource: [Preact Introducing Signals](https://preactjs.com/blog/introducing-signals/)
 
 ### The Essence and Future of Signals:
 As signals continue to gain prominence within front-end development, their role as foundational elements for building responsive and scalable applications becomes increasingly apparent. Whether through SolidJs, Svelte, or other emerging frameworks, signals represent a fundamental shift towards a more efficient and intuitive approach to reactivity. As we look to the future, the widespread adoption of signals promises to reshape the landscape of front-end development, ushering in an era of unprecedented innovation and creativity.
