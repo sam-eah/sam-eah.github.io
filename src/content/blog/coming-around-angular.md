@@ -17,41 +17,36 @@ There are lots of other things that I dislike about React, but it’s not this t
 
 My first impression of **Angular** was really bad. To create a single component, you had to write **4 files** (ts, html, css, specs — you could write all in the .ts class but it was considered bad practise back then), then add it to **ngModules** declaration. You had to export it as well to use it in another module, and of course import it in the correct one. You had to do this for EVERY components. 
 
----
 
-*Needless to say it blew my mind to later discover than NestJs decided to inspire itself from Angular in its structure…*
+<div style="margin: 30px; margin-inline:60px; font-style: italic;">
+Needless to say it blew my mind to later discover than NestJs decided to inspire itself from Angular in its structure…
+</div>
 
----
 
 Moreover, you *had* to use typescript. My first experiences with it, a while before, where catastrophic. 
 Of course, now I wouldn’t ever write a project in plain js, without typescript. 
 
 
----
 
-*Well at least typescript types and langage server if not .ts files, I can very well live without the compilation, even if it means using ugly jsdoc annotations...*
-
----
+<div style="margin: 30px; margin-inline:60px; font-style: italic;">
+Well at least typescript types and langage server if not .ts files, I can very well live without the compilation, even if it means using ugly jsdoc annotations...
+</div>
 
 
 I don’t think I still have to defend ts benefits in this day and age, but just to cite a few: way less runtime errors (the lsp catches a lot, and the compiler too), linting, autocompletion, … Projects are way easier to maintain and to build in teams.
 
 
----
-
-*Downside of ts is that it made me dislike most dynamically typed languages, such as python (it seems there are some projects similar to ts for python but none seem to have really shined. I’m also familiar with type annotation, that I use quite a lot, but unfortunately the LSP is quite weak and type inference not quite there, even when using pycharm).*
-
----
+<div style="margin: 30px; margin-inline:60px; font-style: italic;">
+Downside of ts is that it made me dislike most dynamically typed languages, such as python (it seems there are some projects similar to ts for python but none seem to have really shined. I’m also familiar with type annotation, that I use quite a lot, but unfortunately the LSP is quite weak and type inference not quite there, even when using pycharm).
+</div>
 
 
 I also had a hard time with **RxJs**. It really was a paradigm shift. It seemed over complicated for no apparent reason. You had to learn a consequent amount of its API and functions to get going. Observables (or subjects) where a way to build **computed properties**, but ther was a lot of boilerplate.
 
 
----
-
-*In vue you would simply use a computed (that would be already really performant), in react you would declare a variable based on a state variable (that would be recalculated on each re render) or use a useMemo if you care about performance (but you have to explicitly provide the dependency array).*
-
----
+<div style="margin: 30px; margin-inline:60px; font-style: italic;">
+In vue you would simply use a computed (that would be already really performant), in react you would declare a variable based on a state variable (that would be recalculated on each re render) or use a useMemo if you care about performance (but you have to explicitly provide the dependency array).
+</div>
 
 
 Most of the time I would end up using **ngOnChanges** (the horror) or **getters and setters**. 
@@ -61,7 +56,7 @@ Another really nice thing that came with **observables** was the opportunity to 
 That’s when I started to really enjoy the batteries included framework. For UI, **Material** was really easy to implement (even though really hard to personalise). Angular also came with one of the best **form input handling** (two way binding, validation, etc). Still one of the best I've used to this day!
 
 Later, a lot of new changes started to appear. I remember the surprise to see RFCs in the GitHub repo, for a project known to be very stagnant, and also pretty opaque in terms of development. 
-First big one was **"Standalone components"**, then came the `inject` method, then **signals**, **control flow**, … I was so hyped. I followed the comments with great concern, and started implementing most of the features as soon as the were released.
+First big one was [**Standalone components**](https://github.com/angular/angular/discussions/43784), then [**Strictly Typed Reactive Forms**](https://github.com/angular/angular/discussions/44513), then came the[ `inject`](https://angular.io/api/core/inject) method, then [**Signals**](https://github.com/angular/angular/discussions/49685), [**Control Flow & Deferred Loading**](https://github.com/angular/angular/discussions/51241), … I was so hyped. I followed the comments with great concern, and started implementing most of the features as soon as the were released.
 The debate between **signals** and **RxJs** was very intense. It was finally agreed that even though RxJs made perfect sense for **asynchronous** code handling, it was way too complicated (and even bad design in some cases -- see **diamond problem**) for **synchronous** code.
 
 In the meantime, I had the opportunity to try quite a few other JS frameworks (remember that at some point, one was coming out every day). 
