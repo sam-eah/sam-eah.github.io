@@ -370,7 +370,7 @@ Let's add this entity via postman or curl:
 Open `pgAdmin` to verify that the row was correctly added in the table.
 You can also use postman or curl with a get request.
 
-## Importe data in PostGIS base with GeoDjango
+## Import data in PostGIS base with GeoDjango
 
 Create folders `datasource` and `management/commands` in `house` folder.
 
