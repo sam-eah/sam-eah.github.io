@@ -157,7 +157,7 @@ export function useAuth() {
 
   const authenticate = async () => {
     try {
-      const { data } = await useFetch('/api/auth/me');
+      const { data } = await $fetch('/api/auth/me');
       store.setAccount(data.value);
     } catch (error) {
       store.setAccount(null);
@@ -165,7 +165,7 @@ export function useAuth() {
   };
 
   const login = async (email: string) => {
-    const { data } = await useFetch('/api/auth/login', {
+    const { data } = await $fetch('/api/auth/login', {
       method: 'post',
       body: { email },
     });
@@ -173,7 +173,7 @@ export function useAuth() {
   };
 
   const logout = async () => {
-    await useFetch('/api/auth/logout', { method: 'delete' });
+    await $fetch('/api/auth/logout', { method: 'delete' });
     store.setAccount(null);
   };
 
