@@ -62,7 +62,7 @@ export default defineEventHandler(async (event) => {
       statusMessage: 'User not found',
     });
 
-  const sessionId = '1111';
+  const sessionId = crypto.randomUUID();
   SESSIONS.set(sessionId, user);
   setCookie(event, 'sessionId', sessionId, {
     secure: true,
@@ -124,68 +124,52 @@ export default defineEventHandler(async (event) => {
 });
 ```
 
-## Store
-
-`store/index.ts`
-
-```ts
-import { User } from '@prisma/client';
-import { defineStore } from 'pinia';
-
-export const useStore = defineStore('main', {
-  state: () => ({
-    account: null as User | null,
-  }),
-  actions: {
-    setAccount(account: User | null) {
-      this.account = account;
-    },
-  },
-  persist: true,
-});
-```
-
 ## Composables
 
 `composables/useAuth.ts`
 
 ```ts
-import { useStore } from '../store';
+import { useMutation, useQuery, useQueryClient } from "@tanstack/vue-query";
 
-export function useAuth() {
-  const store = useStore();
+export function useLogin() {
+  const queryClient = useQueryClient();
 
-  const authenticate = async () => {
-    try {
-      const data = await $fetch('/api/auth/me');
-      store.setAccount(data.value);
-    } catch (error) {
-      store.setAccount(null);
-    }
-  };
-
-  const login = async (email: string) => {
-    const data = await $fetch('/api/auth/login', {
-      method: 'post',
-      body: { email },
-    });
-    store.setAccount(data.value);
-  };
-
-  const logout = async () => {
-    await $fetch('/api/auth/logout', { method: 'delete' });
-    store.setAccount(null);
-  };
-
-  const account = computed(() => store.account);
-
-  return {
-    account,
-    authenticate,
-    login,
-    logout,
-  };
+  return useMutation({
+    mutationFn: (email: string) =>
+      $fetch("/api/auth/login", {
+        method: "post",
+        body: { email },
+      }),
+    onSuccess(data) {
+      queryClient.setQueryData(["me"], data);
+    },
+    onError(error, variables, context) {
+      alert(error)
+    },
+  });
 }
+
+export function useLogout() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: () => $fetch("/api/auth/logout", { method: "delete" }),
+    onSuccess() {
+      console.log("success")
+      queryClient.invalidateQueries({queryKey: ["me"]})
+    },
+    onError(error, variables, context) {
+      alert(error)
+    },
+  });
+}
+
+export const useMe = () => useQuery({
+  queryKey: ["me"],
+  queryFn: async () => $fetch("/api/auth/me"),
+  retry: false
+});
+
 ```
 
 ## Components
@@ -194,25 +178,34 @@ export function useAuth() {
 
 ```vue
 <template>
-  <form method="dialog">
-    <input type="text" v-model="email" />
-    <button
-      v-on:click="
-        () => {
-          login(email).then(() => {
-            navigateTo('/');
-          });
-        }
-      ">
+  <div v-if="me.isPending.value">Loading...</div>
+  <form v-else-if="me.error.value" @submit.prevent="login.mutate(email)">
+    <input v-model="email" />
+    <button type="submit" :disabled="login.isPending.value">
       Login
     </button>
   </form>
+  <div v-else-if="me.data.value">
+    {{ me.data.value?.email }}
+    <button @click="logout.mutate()" :disabled="logout.isPending.value">
+      Logout
+    </button>
+    <button @click="me.refetch()" :disabled="me.isPending.value">
+      Try auth
+    </button>
+  </div>
 </template>
 
 <script setup lang="ts">
-const { login } = useAuth();
-const email = ref('');
+import { useLogin, useLogout, useMe } from "~/services/auth";
+
+const me = useMe();
+const login = useLogin();
+const logout = useLogout();
+
+const email = ref("");
 </script>
+
 ```
 
 ## Example endpoint requiring auth
@@ -270,8 +263,8 @@ export default defineEventHandler(async (event) => {
       <span v-else>
         No one own this book
         <button
-          v-if="account"
-          v-on:click="() => updateBook?.(book.id, account!.id)">
+          v-if="account?.id"
+          v-on:click="() => updateBook?.(book.id, account.id)">
           Rent the book
         </button>
       </span>
@@ -282,7 +275,8 @@ export default defineEventHandler(async (event) => {
 <script setup lang="ts">
 import { BookWithRelations } from '../prisma/types';
 
-const { account } = useAuth();
+const me = useMe();
+const account = computed(() => me.data.value)
 
 defineProps<{
   data?: BookWithRelations[] | null;
