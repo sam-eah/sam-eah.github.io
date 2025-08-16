@@ -32,7 +32,7 @@
 </script>
 
 {#if tocHeadings.length > 0}
-  <nav class="toc-sidebar" class:toc-expanded={isExpanded} aria-label="Table of contents">
+  <nav class="toc-sidebar bg-[#bf9bff4d] text-black dark:bg-black dark:text-white" class:toc-expanded={isExpanded} aria-label="Table of contents">
     <div class="toc-header" class:collapsed={!isExpanded} on:click={toggleExpanded}>
       <h3 class="toc-title">Contents</h3>
       <button 
@@ -77,7 +77,6 @@
     height: fit-content;
     max-height: 80vh;
     overflow-y: auto;
-    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 1rem;
@@ -126,8 +125,6 @@
 
   .toc-title {
     font-size: 1.1rem;
-    font-weight: 500;
-    color: #f3f4f6;
     margin: 0;
   }
 
@@ -172,7 +169,6 @@
   .toc-link {
     display: block;
     padding: 0.5rem 0.75rem;
-    color: #d1d5db;
     text-decoration: none;
     border-radius: 0.5rem;
     transition: all 0.2s ease;
@@ -183,38 +179,24 @@
 
   .toc-link:hover {
     background: rgba(255, 255, 255, 0.1);
-    color: #f3f4f6;
+    /* color: #f3f4f6; */
   }
 
   .toc-link[data-depth="2"] {
-    font-weight: 600;
-    color: #e5e7eb;
   }
 
   .toc-link[data-depth="3"] {
-    font-weight: 500;
     padding-left: 1.5rem;
-    color: #d1d5db;
   }
 
   .toc-link[data-depth="4"] {
-    font-weight: 400;
     padding-left: 2.25rem;
-    color: #9ca3af;
     font-size: 0.85rem;
   }
 
   .toc-sidebar nav {
     margin: 0;
     padding: 0;
-  }
-
-  /* Dark mode adjustments */
-  @media (prefers-color-scheme: dark) {
-    .toc-sidebar {
-      background: rgba(0, 0, 0, 0.3);
-      border-color: rgba(255, 255, 255, 0.1);
-    }
   }
 
   /* Mobile responsiveness */
