@@ -1,10 +1,18 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
 import FormattedDate from './FormattedDate.astro';
+import TableOfContents from './TableOfContents.svelte';
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<'blog'>['data'] & {
+  headings?: Array<{
+    depth: number;
+    slug: string;
+    text: string;
+  }>;
+};
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, headings } = Astro.props;
 ---
 
 <style>
@@ -13,61 +21,159 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     margin: auto;
     padding: 1em 0.5em;
   }
-  .hero-image {
-    width: 100%;
+  .hero-image-container {
+    width: 85%;
+    max-width: 900px;
+    margin: 0 auto 2rem auto;
+    background: rgb(17, 17, 17);
+    border-radius: 1rem;
+    line-height: 0;
+    font-size: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
+
+  .hero-image-container:hover {
+    /* transform: translateY(-2px); */
+    /* box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3); */
+  }
+
+  .hero-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2/1;
+    overflow: hidden;
+    background: rgb(17, 17, 17);
+    line-height: 0;
+    font-size: 0;
+    border-radius: 1rem;
+  }
+  
   .hero-image img {
     display: block;
-    margin: 0 auto;
-    border-radius: 12px;
-    box-shadow: var(--box-shadow);
-    aspect-ratio: 2/1;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    background: rgb(17, 17, 17);
+    transition: transform 0.3s ease;
+    border-radius: 1rem;
   }
+
+  .hero-image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 30%,
+      rgba(0, 0, 0, 0.5) 50%,
+      rgba(0, 0, 0, 0.8) 70%,
+      rgba(0, 0, 0, 0.95) 85%,
+      rgba(0, 0, 0, 1) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hero-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at 50% 100%,
+      rgba(139, 92, 246, 0.20),
+      rgba(99, 102, 241, 0.12) 25%,
+      transparent 45%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .hero-image-container:hover .hero-image img {
+    /* transform: scale(1.05); */
+  }
+
+  .hero-image-container:hover .hero-image::after {
+    opacity: 1;
+  }
+
   .date {
+    @apply text-gray-600 dark:text-gray-400;
   }
+  
   .last-updated-on {
     font-style: italic;
+    @apply text-gray-500 dark:text-gray-500 text-sm mt-1;
+  }
+
+  .content-wrapper {
+    display: flex;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .content-wrapper .prose {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 1024px) {
+    .content-wrapper {
+      flex-direction: column;
+      gap: 1rem;
+    }
   }
 </style>
 
 <main>
   <article>
-    <div class='hero-image'>
-      {
-        heroImage ? (
-          <img
-            transition:name={`img:${title}`}
-            width={1020}
-            height={510}
-            src={heroImage}
-            alt=''
-          />
-        ) : (
-          <img width={1020} height={510} src='/old_computer.png' alt='' />
-        )
-      }
-    </div>
-    <div class='prose xl:prose-xl m-auto'>
-      <div class='text-center'>
-        <div class='date'>
-          <FormattedDate transition:name={`date:${pubDate}`} date={pubDate} />
-          {
-            updatedDate && (
-              <div class='last-updated-on'>
-                Last updated on <FormattedDate date={updatedDate} />
-              </div>
-            )
-          }
-        </div>
-        <h1 class='dark:text-gray-300' transition:name={`title:${title}`}>
-          {title}
-        </h1>
-        <hr />
+    <div class="hero-image-container">
+      <div class='hero-image'>
+        {
+          heroImage ? (
+            <Image
+              transition:name={`img:${title}`}
+              width={1020}
+              height={510}
+              src={heroImage}
+              alt=''
+            />
+          ) : (
+            <Image width={1020} height={510} src='/old_computer.png' alt='' />
+          )
+        }
       </div>
-      <div
-        class='mx-auto prose xl:prose-xl dark:prose-invert dark:prose-headings:text-slate-300 prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-img:rounded-md prose-img:shadow-lg mt-8'>
-        <slot />
+    </div>
+    
+    <div class="content-wrapper">
+      {headings && <TableOfContents client:load headings={headings} />}
+      
+      <div class='prose xl:prose-xl m-auto'>
+        <div class='text-center'>
+          <div class='date'>
+            <FormattedDate transition:name={`date:${pubDate}`} date={pubDate} />
+            {
+              updatedDate && (
+                <div class='last-updated-on'>
+                  Last updated on <FormattedDate date={updatedDate} />
+                </div>
+              )
+            }
+          </div>
+          <h1 class='dark:text-gray-300' transition:name={`title:${title}`}>
+            {title}
+          </h1>
+          <hr />
+        </div>
+        <div
+          class='mx-auto prose xl:prose-xl dark:prose-invert dark:prose-headings:text-slate-300 prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-img:rounded-md prose-img:shadow-lg mt-8'>
+          <slot />
+        </div>
       </div>
     </div>
   </article>

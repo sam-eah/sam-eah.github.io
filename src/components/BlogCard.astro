@@ -18,42 +18,46 @@ interface Props {
 const { slug, data } = Astro.props;
 ---
 
-<style>
-  img {
-    margin-bottom: 0.5rem;
-    border-radius: 12px;
-    aspect-ratio: 2/1;
-    object-fit: cover;
-  }
-  a {
-    display: block;
-  }
-  a:hover img {
-    box-shadow: var(--box-shadow);
-  }
-  * {
-    text-decoration: none;
-    transition: 0.2s ease;
-  }
-</style>
-
-<a href={`/blog/${slug}/`}>
-  <img
-    transition:name={`img:${data.title}`}
-    width={720}
-    height={360}
-    src={data.heroImage}
-    alt=''
-  />
-  <h4
-    transition:name={`title:${data.title}`}
-    class='text-center font-bold [text-wrap:balance]'>
-    {data.title}
-  </h4>
-  <p class='text-center text-gray-500'>
-    <FormattedDate
-      transition:name={`title:${data.pubDate}`}
-      date={data.pubDate}
-    />
-  </p>
+<a href={`/blog/${slug}/`} class="group block overflow-hidden rounded-2xl bg-white dark:bg-gray-900 shadow-md hover:shadow-xl transition-all duration-300">
+  <div class="relative aspect-[2/1] overflow-hidden rounded-t-2xl">
+    <div class="absolute inset-0 w-full h-full transition-transform duration-300 group-hover:scale-105">
+      <img
+        transition:name={`img:${data.title}`}
+        width={720}
+        height={360}
+        src={data.heroImage}
+        alt=''
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    </div>
+  </div>
+  
+  <div class="p-6">
+    <h4
+      transition:name={`title:${data.title}`}
+      class="text-xl font-bold mb-2 [text-wrap:balance] bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent group-hover:from-pink-600 group-hover:to-purple-600 transition-all duration-300">
+      {data.title}
+    </h4>
+    
+    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4 line-clamp-2">
+      {data.description}
+    </p>
+    
+    <div class="flex items-center justify-between">
+      <p class="text-sm font-medium text-gray-600 dark:text-gray-300">
+        <FormattedDate
+          transition:name={`title:${data.pubDate}`}
+          date={data.pubDate}
+        />
+      </p>
+      <span class="inline-flex items-center text-sm font-medium text-purple-600 dark:text-purple-400 group-hover:translate-x-1 transition-transform duration-300">
+        Read more 
+        <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13.75 6.75L19.25 12L13.75 17.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M19 12H4.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </div>
+  </div>
 </a>

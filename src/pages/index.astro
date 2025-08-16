@@ -1,59 +1,59 @@
 ---
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 import Layout from '../layouts/layout.astro';
 import BlogCard from '../components/BlogCard.astro';
+import samImage from '../assets/sam.jpg';
 
 const posts = (await getCollection('blog')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
 
-<style>
-  main {
-    width: 960px;
-    margin: auto;
-    max-width: calc(100% - 2em);
-    padding: 3em 1em;
-  }
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  ul li {
-    width: calc(50% - 1rem);
-  }
-  .articles {
-    margin-top: 60px;
-  }
-
-  @media (max-width: 720px) {
-    ul {
-      gap: 0.5em;
-    }
-    ul li {
-      width: 100%;
-      text-align: center;
-    }
-  }
-</style>
-
 <Layout>
-  <!-- <Header title={SITE_TITLE} /> -->
-  <main>
-    <p>Welcome to my blog :)</p>
-    <p>
-      I write about web development, front-end, back-end, data, devops, infra,
-      GIS, ...
-    </p>
-    <section class='articles'>
-      <ul>
+  <main class="container mx-auto max-w-7xl px-4 py-8 md:py-16">
+    <div class="max-w-6xl mx-auto">
+      <!-- Hero Section: Image + Intro Side by Side -->
+      <div class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-3xl pt-4 pb-6 px-6 md:p-8 mt-4 md:mt-8 mb-8 md:mb-20">
+        <div class="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
+          <!-- Profile Image -->
+          <div class="flex-shrink-0">
+            <Image 
+              src={samImage} 
+              alt="Samy Echarif" 
+              width={160}
+              height={160}
+              class="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover shadow-md border-2 border-gray-100 dark:border-gray-800"
+            />
+          </div>
+          
+          <!-- Intro Text -->
+          <div class="text-center md:text-left flex-1">
+            <p class="text-2xl md:text-3xl mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent font-medium">Welcome to my blog <span class="homepage-emoji">✨</span></p>
+            <p class="text-lg text-gray-600 leading-relaxed mb-4">
+              I write about modern web development, cloud infrastructure, and practical software engineering. From React hooks and Vue.js applications to AWS services and Terraform automation, I share insights from building real-world applications. You'll find articles on performance optimization, GIS development, serverless architectures, and DevOps best practices—all based on hands-on experience and lessons learned in production environments.
+            </p>
+            <div class="text-right">
+              <span class="inline-flex items-center text-sm font-medium text-purple-600 dark:text-purple-400 hover:translate-x-1 transition-transform duration-300">
+                <a href="/cv" class="inline-flex items-center">
+                  Learn more about me
+                  <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.75 6.75L19.25 12L13.75 17.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M19 12H4.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Blog Posts Section -->
+      <section>
+        <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
         {
           posts.map((post) => (
-            <li>
+            <li class="transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
               <BlogCard {...post} />
             </li>
           ))

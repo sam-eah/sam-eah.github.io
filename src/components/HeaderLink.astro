@@ -14,16 +14,16 @@ const isActive =
   (alias && pathname.includes(alias));
 ---
 
-<a href={href} class:list={[className, { active: isActive }]} {...props}>
+<a
+  href={href}
+  class:list={[
+    'inline-block px-3 py-2 transition-all duration-200 text-gray-400 hover:text-purple-300 hover:scale-105',
+    className,
+    {
+      'font-medium border-b-2 border-purple-600 text-purple-400': isActive,
+    },
+  ]}
+  {...props}
+>
   <slot />
 </a>
-<style>
-  a {
-    display: inline-block;
-    text-decoration: none;
-  }
-  a.active {
-    font-weight: bolder;
-    text-decoration: underline;
-  }
-</style>
