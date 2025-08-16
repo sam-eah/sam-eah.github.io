@@ -107,27 +107,6 @@ const { title, description, pubDate, updatedDate, heroImage, headings } = Astro.
     font-style: italic;
     @apply text-gray-500 dark:text-gray-500 text-sm mt-1;
   }
-
-  .content-wrapper {
-    display: flex;
-    gap: 2rem;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 1rem;
-  }
-
-  .content-wrapper .prose {
-    flex: 1;
-    min-width: 0;
-  }
-
-  /* Mobile responsiveness */
-  @media (max-width: 1024px) {
-    .content-wrapper {
-      flex-direction: column;
-      gap: 1rem;
-    }
-  }
 </style>
 
 <main>
@@ -150,7 +129,7 @@ const { title, description, pubDate, updatedDate, heroImage, headings } = Astro.
       </div>
     </div>
     
-    <div class="content-wrapper">
+    <div>
       {headings && <TableOfContents client:load headings={headings} />}
       
       <div class='prose xl:prose-xl m-auto'>
