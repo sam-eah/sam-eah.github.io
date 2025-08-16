@@ -1,5 +1,5 @@
 ---
-title: 'AWS Cost Optimization'
+title: 'AWS cost optimization'
 description: ''
 pubDate: 'Jan 05 2024'
 heroImage: '/data_center.png'

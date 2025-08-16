@@ -1,5 +1,5 @@
 ---
-title: 'Autoscale AWS Fargate Containers with high availability'
+title: 'Autoscale AWS Fargate containers with high availability'
 description: ''
 pubDate: 'Aug 11 2023'
 heroImage: '/world_map_outline.png'

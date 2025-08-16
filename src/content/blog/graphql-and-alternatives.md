@@ -7,19 +7,19 @@ heroImage: '/graphql.png'
 
 GraphQL has become the cool kid on the block for web development, promising flexibility and efficiency in handling data. However, let's pump the brakes for a moment and explore why using GraphQL might not always be the best idea. This isn't to say GraphQL is bad, but there are situations where it might not be the superhero it seems to be.
 
-### Learning Might Feel Like a Rollercoaster:
+### Learning might feel like a rollercoaster:
 GraphQL comes with a learning curve. If you're used to traditional RESTful APIs, diving into GraphQL can feel like learning a new language. For teams on tight schedules or those who aren't looking for a new challenge, this learning curve might be more of a hurdle than a helpful step forward.
 
-### Data Overload or Underload:
+### Data overload or underload:
 The idea behind GraphQL is to let clients ask for exactly what they need. Sounds great, but it's not foolproof. If your queries are not well-optimized, you might still end up fetching more data than necessary (over-fetching) or miss out on important bits (under-fetching). It's like ordering at a restaurant – you want just the right amount, not too much or too little.
 
-### Security is a Team Sport:
+### Security is a team sport:
 GraphQL's flexibility can be a double-edged sword when it comes to security. If not set up properly, bad actors could exploit your queries and launch attacks. Think of it like handing the keys to your server; you need to set up proper checks and balances to keep the mischievous ones at bay.
 
-### Backend Becomes a Puzzle:
+### Backend becomes a puzzle:
 While GraphQL makes things smooth on the client side, the server might feel the heat. Implementing resolvers, managing data relationships, and optimizing queries can become a bit like solving a complex puzzle. For smaller projects or those without intricate data needs, this added complexity might feel like using a sledgehammer to crack a nut.
 
-### Cache Considerations:
+### Cache considerations:
 Caching is like the secret sauce for fast web applications. With GraphQL, figuring out how to cache effectively can be trickier compared to the more straightforward RESTful APIs. You'll need to roll up your sleeves and put in some extra effort to get the caching game strong with GraphQL.
 
 ## Alternatives

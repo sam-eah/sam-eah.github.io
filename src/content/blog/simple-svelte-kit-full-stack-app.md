@@ -1,5 +1,5 @@
 ---
-title: 'Simple SvelteKit Full Stack App'
+title: 'Simple SvelteKit full-stack app'
 description: ''
 pubDate: 'Jul 03 2023'
 heroImage: '/sveltekit.JPG'

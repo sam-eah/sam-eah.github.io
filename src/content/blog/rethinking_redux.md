@@ -1,5 +1,5 @@
 ---
-title: 'Rethinking Redux: Exploring Alternatives for State Management'
+title: 'Rethinking Redux: exploring alternatives for state management'
 description: ''
 pubDate: 'Mar 09 2024'
 heroImage: '/stores.png'
@@ -7,11 +7,11 @@ heroImage: '/stores.png'
 
 Redux has long been a popular choice for state management in React applications, providing a predictable and centralized way to manage application state. However, as the JavaScript ecosystem evolves, developers are exploring alternatives that offer a simpler and more flexible approach. In this article, we'll discuss some reasons why using Redux might not always be the best fit for every project and explore alternative solutions like Zustand, Jotai, and NanoStores. We have already discussed about those in a previous article, but a refresher can't do any harm!
 
-### Boilerplate Overhead:
+### Boilerplate overhead:
 
 One of the common criticisms of Redux is the amount of boilerplate code it introduces. Actions, reducers, and middleware can make simple features seem overly complex, leading to increased development time and potential for errors. Smaller projects or prototypes might not benefit from the strict structure that Redux enforces.
 
-### Learning Curve:
+### Learning curve:
 
 Redux has a learning curve, especially for beginners. Understanding concepts like actions, reducers, and the Redux store can be challenging for those new to front-end development. Alternatives with simpler APIs can be more approachable, allowing developers to get up and running quickly without a steep learning curve.
 

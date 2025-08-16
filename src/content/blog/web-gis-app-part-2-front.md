@@ -1,5 +1,5 @@
 ---
-title: 'Web GIS App Part 2 - Front-end'
+title: 'Web GIS app part 2 - front-end'
 description: ''
 pubDate: 'Nov 02 2021'
 heroImage: '/future_town.png'

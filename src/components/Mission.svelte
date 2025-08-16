@@ -38,7 +38,7 @@
           </div>
 
           <h3
-            class="text-xl mt-1 font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 leading-tight"
+            class="text-xl mt-1 sm:mt-1 md:mt-1 lg:mt-1 xl:mt-1 font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 leading-tight"
           >
             {position}
           </h3>
@@ -119,7 +119,7 @@
           </div>
         {/if}
 
-        <div class="pt-4 flex flex-col gap-6">
+        <div class="flex flex-col gap-6">
           <slot />
         </div>
       </div>

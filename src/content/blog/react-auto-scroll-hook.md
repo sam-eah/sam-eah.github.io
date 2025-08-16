@@ -1,5 +1,5 @@
 ---
-title: 'React Auto Scrolling Hook'
+title: 'React auto-scrolling hook'
 description: ''
 pubDate: 'Jul 27 2023'
 heroImage: '/react.JPG'

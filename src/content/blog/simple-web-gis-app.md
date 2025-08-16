@@ -1,5 +1,5 @@
 ---
-title: 'Simple Web GIS app'
+title: 'Simple web GIS app'
 description: ''
 pubDate: 'Sep 30 2021'
 heroImage: '/future_town.png'

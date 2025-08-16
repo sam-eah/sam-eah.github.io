@@ -1,5 +1,5 @@
 ---
-title: 'Nuxt Cookie Auth'
+title: 'Nuxt cookie auth'
 description: ''
 pubDate: 'Jul 15 2023'
 heroImage: '/authentication.png'
