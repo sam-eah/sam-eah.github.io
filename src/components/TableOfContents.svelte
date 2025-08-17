@@ -32,7 +32,7 @@
 </script>
 
 {#if tocHeadings.length > 0}
-  <nav class="toc-sidebar bg-[#bf9bff4d] text-black dark:bg-black dark:text-white" class:toc-expanded={isExpanded} aria-label="Table of contents">
+  <nav class="toc-sidebar bg-[#bf9bff4d] text-black dark:bg-black dark:text-white w-72 md:w-80 lg:w-96" class:toc-expanded={isExpanded} aria-label="Table of contents">
     <div class="toc-header" class:collapsed={!isExpanded} on:click={toggleExpanded}>
       <h3 class="toc-title">Contents</h3>
       <button 
@@ -46,7 +46,7 @@
         </svg>
       </button>
     </div>
-    <div class="toc-content">
+    <div class="toc-content" class:toc-content-expanded={isExpanded}>
       <ul class="toc-list">
         {#each tocHeadings as heading}
           <li class="toc-item toc-depth-{heading.depth}">
@@ -73,7 +73,6 @@
   .toc-sidebar {
     position: sticky;
     top: 6rem;
-    width: 280px;
     height: fit-content;
     max-height: 80vh;
     overflow-y: auto;
@@ -215,6 +214,10 @@
     .toc-content {
       max-height: 0;
       overflow: hidden;
+    }
+
+    .toc-content-expanded {
+      overflow: auto;
     }
 
     .toc-sidebar.toc-expanded .toc-content {
