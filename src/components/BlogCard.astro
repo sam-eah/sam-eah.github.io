@@ -18,7 +18,7 @@ interface Props {
 const { slug, data } = Astro.props;
 ---
 
-<a href={`/blog/${slug}/`} class="group block overflow-hidden rounded-2xl bg-white dark:bg-gray-900 shadow-md hover:shadow-xl transition-all duration-300 motion-translate-x-in-25" client:load>
+<a href={`/blog/${slug}/`} class="group block overflow-hidden rounded-2xl bg-white dark:bg-gray-900 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
   <div class="relative aspect-[2/1] overflow-hidden rounded-t-2xl">
     <div class="absolute inset-0 w-full h-full transition-transform duration-300 group-hover:scale-105">
       <img

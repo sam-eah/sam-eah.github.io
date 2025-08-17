@@ -53,9 +53,9 @@ dependencies:
   tailwindcss:
     specifier: ^3.4.1
     version: 3.4.1
-  tailwindcss-motion:
-    specifier: ^1.1.1
-    version: 1.1.1(tailwindcss@3.4.1)
+  tailwindcss-intersect:
+    specifier: ^2.2.0
+    version: 2.2.0(tailwindcss@3.4.1)
 
 packages:
 
@@ -4881,10 +4881,10 @@ packages:
       periscopic: 3.1.0
     dev: false
 
-  /tailwindcss-motion@1.1.1(tailwindcss@3.4.1):
-    resolution: {integrity: sha512-CeeQAc5o31BuEPMyWdq/786X7QWNeifa+8khfu74Fs8lGkgEwjNYv6dGv+lRFS8FWXV5dp7F3AU9JjBXjiaQfw==}
+  /tailwindcss-intersect@2.2.0(tailwindcss@3.4.1):
+    resolution: {integrity: sha512-LnOQ/iU44jNQ8k3OExa7Ccv/y5NlzAN574jjDnX5gLCdlqoeUT5ADtTznF92oAdon3NZA69b+JLknahbwsqxDA==}
     peerDependencies:
-      tailwindcss: '>=3.0.0 || insiders'
+      tailwindcss: '>=3.2.0 || >=4.0.0'
     dependencies:
       tailwindcss: 3.4.1
     dev: false

@@ -20,5 +20,5 @@ module.exports = {
     },
   },
   darkMode: 'class',
-  plugins: [require('@tailwindcss/typography'), require('tailwindcss-motion')],
+  plugins: [require('@tailwindcss/typography'), require('tailwindcss-intersect')],
 };

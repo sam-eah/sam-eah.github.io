@@ -7,7 +7,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import '~/assets/styles/tailwind.css';
 import BasicScripts from '~/components/BasicScripts.astro';
 
-import Layout2 from './layout2.svelte';
 ---
 
 <!doctype html>
@@ -16,15 +15,42 @@ import Layout2 from './layout2.svelte';
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <!-- <ViewTransitions /> -->
     <BasicScripts />
+    <script src="https://unpkg.com/tailwindcss-intersect@2.x.x/dist/observer.min.js"></script>
   </head>
   <body
     class='antialiased text-default bg-page tracking-tight dark:bg-black dark:text-gray-300'>
     <Header title={SITE_TITLE} />
     <section>
-      <Layout2 client:load>
+      <div class="relative min-h-screen spotlight-wrapper">
         <slot />
-      </Layout2>
+      </div>
     </section>
     <Footer />
   </body>
 </html>
+
+<script is:inline client:load>
+  const wrapper = document.querySelector('.spotlight-wrapper');
+
+  window.addEventListener('mousemove', (e) => {
+    if (wrapper) {
+      wrapper.style.setProperty('--mouse-x', `${e.clientX}px`);
+      wrapper.style.setProperty('--mouse-y', `${e.clientY}px`);
+    }
+  });
+</script>
+
+
+<style>
+/* Spotlight background using CSS variables */
+.spotlight-wrapper::before {
+  content: "";
+  @apply fixed inset-0 pointer-events-none z-0 transition-all duration-300;
+  background: radial-gradient(
+    400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(139, 92, 246, 0.2),
+    rgba(99, 102, 241, 0.12) 25%,
+    transparent 45%
+  );
+}
+</style>

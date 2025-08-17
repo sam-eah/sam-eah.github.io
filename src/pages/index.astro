@@ -13,7 +13,7 @@ const posts = (await getCollection('blog')).sort(
   <main class="container mx-auto max-w-7xl px-8 py-8 md:py-16 sm:px-12 md:px-16">
     <div class="max-w-6xl mx-auto">
       <!-- Hero Section: Image + Intro Side by Side -->
-      <div class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-3xl pt-4 pb-6 px-6 md:p-8 mt-4 md:mt-8 mb-8 md:mb-20 motion-translate-x-in-25">
+      <div class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-3xl pt-4 pb-6 px-6 md:p-8 mt-4 md:mt-8 mb-8 md:mb-20 opacity-0 intersect:opacity-100 translate-y-4 intersect:translate-y-0 transition duration-700 ease-out">
         <div class="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
           <!-- Profile Image -->
           <div class="flex-shrink-0">
@@ -52,7 +52,7 @@ const posts = (await getCollection('blog')).sort(
         <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
         {
           posts.map((post) => (
-            <li class="transform transition-all duration-300 hover:-translate-y-1">
+            <li class="opacity-0 intersect:opacity-100 translate-y-4 intersect:translate-y-0 transition duration-700 ease-out">
               <BlogCard {...post} />
             </li>
           ))
