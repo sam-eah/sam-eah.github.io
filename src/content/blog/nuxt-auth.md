@@ -18,12 +18,30 @@ model User {
 
 ## Server API
 
-`server/sessions.ts`
+`server/utils/auth.ts`
 
 ```ts
 import { User } from '@prisma/client';
 
-export const SESSIONS = new Map<string, User>();
+export const useSessions = () => useStorage<User>();
+
+export function getUser(event: H3Event) {
+  const sessions = useSessions();
+  const sessionId = getCookie(event, 'sessionId');
+  if (!sessionId)
+    throw createError({
+      statusCode: 401,
+      statusMessage: 'You must be connected',
+    });
+
+  const user = sessions.getItem(sessionId);
+  if (!user)
+    throw createError({
+      statusCode: 401,
+      statusMessage: 'User session not found',
+    });
+}
+
 ```
 
 `server/api/auth/login.post.ts`
@@ -31,17 +49,15 @@ export const SESSIONS = new Map<string, User>();
 ```ts
 import { prisma } from '../../../prisma/db';
 import { z } from 'zod';
-import { SESSIONS } from '../../sessions';
 
-// https://nuxt.com/docs/guide/directory-structure/server
+const bodySchema = z.object({
+  email: z.string().email(),
+  // password: z.string(),
+})
+
 export default defineEventHandler(async (event) => {
-  const body = await readBody(event);
-  const parsedBody = z
-    .object({
-      email: z.string().email(),
-      // password: z.string(),
-    })
-    .parse(body);
+  const body = await readValidatedBody(event, bodySchema.parse);
+  const sessions = useSessions();
 
   const user = await prisma.user
     .findFirst({
@@ -50,20 +66,13 @@ export default defineEventHandler(async (event) => {
       },
     })
     .catch((error) => {
-      throw createError({
-        statusCode: 400,
-        statusMessage: 'An error occured with the database',
-      });
+      throw createError('An error occured with the database');
     });
 
-  if (!user)
-    throw createError({
-      statusCode: 400,
-      statusMessage: 'User not found',
-    });
+  if (!user) throw createError('User not found');
 
   const sessionId = crypto.randomUUID();
-  SESSIONS.set(sessionId, user);
+  sessions.setItem(sessionId, user);
   setCookie(event, 'sessionId', sessionId, {
     secure: true,
     httpOnly: true,
@@ -77,19 +86,14 @@ export default defineEventHandler(async (event) => {
 `server/api/auth/logout.delete.ts`
 
 ```ts
-import { SESSIONS } from '../../sessions';
-
-// https://nuxt.com/docs/guide/directory-structure/server
 export default defineEventHandler(async (event) => {
   const sessionId = getCookie(event, 'sessionId');
+  const sessions = useSessions();
 
   if (!sessionId)
-    throw createError({
-      statusCode: 400,
-      statusMessage: 'Session id not found',
-    });
+    throw createError('Session id not found');
 
-  SESSIONS.delete(sessionId);
+  sessions.removeItem(sessionId);
   deleteCookie(event, sessionId);
 
   setResponseStatus(event, 204);
@@ -100,26 +104,8 @@ export default defineEventHandler(async (event) => {
 `server/api/auth/me.ts`
 
 ```ts
-import { SESSIONS } from '../../sessions';
-
-// https://nuxt.com/docs/guide/directory-structure/server
 export default defineEventHandler(async (event) => {
-  const sessionId = getCookie(event, 'sessionId');
-
-  if (!sessionId)
-    throw createError({
-      statusCode: 400,
-      statusMessage: 'Session id not found',
-    });
-
-  const user = SESSIONS.get(sessionId);
-
-  if (!user)
-    throw createError({
-      statusCode: 400,
-      statusMessage: 'Session expired',
-    });
-
+  const user = getUser(event);
   return user;
 });
 ```
@@ -166,7 +152,7 @@ export function useLogout() {
 
 export const useMe = () => useQuery({
   queryKey: ["me"],
-  queryFn: async () => $fetch("/api/auth/me"),
+  queryFn: () => $fetch("/api/auth/me"),
   retry: false
 });
 
@@ -206,40 +192,6 @@ const logout = useLogout();
 const email = ref("");
 </script>
 
-```
-
-## Example endpoint requiring auth
-
-Let's create an endpoint requiring auth, `server/api/test.ts`
-
-```ts
-import { prisma } from '../../../prisma/db';
-import { z } from 'zod';
-import { SESSIONS } from '../../sessions';
-
-// https://nuxt.com/docs/guide/directory-structure/server
-export default defineEventHandler(async (event) => {
-  const id = +event.context.params!.slug;
-  const parsedId = z.number().parse(id);
-
-  const sessionId = getCookie(event, 'sessionId');
-  if (!sessionId)
-    throw createError({
-      statusCode: 401,
-      statusMessage: 'You must be connected',
-    });
-
-  const user = SESSIONS.get(sessionId);
-  if (!user)
-    throw createError({
-      statusCode: 401,
-      statusMessage: 'User session not found',
-    });
-
-  // do the work
-
-  return {};
-}
 ```
 
 ## Example component using auth
