@@ -23,36 +23,52 @@ const props = Astro.props;
       <HeaderLink href="/" alias="blog">Blog</HeaderLink>
       <HeaderLink href="/cv">About</HeaderLink>
     </div>
-    <div class="flex align-center gap-2">
-<button id="themeToggle"
+    <div class="flex align-center gap-2 sm:gap-4">
+      <button
+        id="themeToggle"
         onclick="
           const newTheme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
           document.documentElement.classList.toggle('dark', newTheme === 'dark');
           localStorage.setItem('theme', newTheme);
         "
-  type="button"
-  aria-label="Toggle theme"
-  aria-pressed="false"
-  class="flex items-center justify-center w-8 h-8 rounded-full shadow-sm
+        type="button"
+        aria-label="Toggle theme"
+        aria-pressed="false"
+        class="flex items-center justify-center w-8 h-8 rounded-full shadow-sm
          bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-gray-100
-         transition-colors duration-200 hover:scale-105 active:scale-95">
+         transition-colors duration-200 hover:scale-105 active:scale-95"
+      >
+        <!-- Sun (light mode) -->
+        <svg
+          class="w-4 h-4 block dark:hidden"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <circle cx="12" cy="12" r="4"></circle>
+          <path
+            stroke-linecap="round"
+            d="M12 2v2M12 20v2M4 12H2M22 12h-2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+          ></path>
+        </svg>
 
-  <!-- Sun (light mode) -->
-  <svg class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" stroke-width="2"
-       viewBox="0 0 24 24">
-    <circle cx="12" cy="12" r="4"/>
-    <path stroke-linecap="round" d="M12 2v2M12 20v2M4 12H2M22 12h-2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
-  </svg>
-
-  <!-- Moon (dark mode) -->
-  <svg class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2"
-       viewBox="0 0 24 24">
-    <path stroke-linecap="round" stroke-linejoin="round"
-          d="M21 12.79A9 9 0 1 1 11.21 3
-             a7 7 0 0 0 9.79 9.79Z"/>
-  </svg>
-</button>
-      
+        <!-- Moon (dark mode) -->
+        <svg
+          class="w-4 h-4 hidden dark:block"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M21 12.79A9 9 0 1 1 11.21 3
+             a7 7 0 0 0 9.79 9.79Z"
+          ></path>
+        </svg>
+      </button>
 
       <a
         href="https://github.com/sam-eah"

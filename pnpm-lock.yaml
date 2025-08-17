@@ -53,6 +53,9 @@ dependencies:
   tailwindcss:
     specifier: ^3.4.1
     version: 3.4.1
+  tailwindcss-motion:
+    specifier: ^1.1.1
+    version: 1.1.1(tailwindcss@3.4.1)
 
 packages:
 
@@ -4876,6 +4879,14 @@ packages:
       locate-character: 3.0.0
       magic-string: 0.30.8
       periscopic: 3.1.0
+    dev: false
+
+  /tailwindcss-motion@1.1.1(tailwindcss@3.4.1):
+    resolution: {integrity: sha512-CeeQAc5o31BuEPMyWdq/786X7QWNeifa+8khfu74Fs8lGkgEwjNYv6dGv+lRFS8FWXV5dp7F3AU9JjBXjiaQfw==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || insiders'
+    dependencies:
+      tailwindcss: 3.4.1
     dev: false
 
   /tailwindcss@3.4.1:
