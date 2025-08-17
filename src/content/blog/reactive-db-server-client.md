@@ -15,7 +15,7 @@ This article walks you through setting it up, without extra infra.
 <!-- <img src='/db-sync.gif' /> -->
 ![Alt text](/db-sync.gif)
 
-*Here I'm using supabase free tier for a demonstration*
+*I'm using supabase (free tier) since it's easy to setup, but this could work with any Postgres db.*
 
 ---
 
