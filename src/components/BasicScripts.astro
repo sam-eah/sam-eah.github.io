@@ -30,4 +30,12 @@ init();
 document.addEventListener('astro:after-swap', () => {
   init();
 });
+
+
+// Listen for localStorage changes (even across tabs)
+window.addEventListener('storage', (e) => {
+  if (e.key === 'theme' && e.newValue) {
+    applyTheme(e.newValue);
+  }
+});
 </script>

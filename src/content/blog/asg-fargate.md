@@ -8,7 +8,7 @@ heroImage: '/world_map_outline.png'
 Let's imagine a very simple dotnet application that allows you to write messages in a database. Messages are stored with their timestamps. How could you make this application scale? We'll explore a solution written with terraform using AWS provider.
 
 Proposed infra:
-<img src="/asg_fargate.png">
+<Image src="/asg_fargate.png">
 
 `provider.tf`
 

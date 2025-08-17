@@ -132,7 +132,7 @@ const { title, description, pubDate, updatedDate, heroImage, headings } = Astro.
     <div class='flex flex-col gap-6 lg:flex-row lg:justify-between'>
       {headings && <TableOfContents client:load headings={headings} />}
       
-      <div class='prose xl:prose-xl m-auto'>
+      <div class='max-w-full prose xl:prose-xl m-auto'>
         <div class='text-center'>
           <div class='date'>
             <FormattedDate transition:name={`date:${pubDate}`} date={pubDate} />
