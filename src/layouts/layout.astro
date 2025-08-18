@@ -15,7 +15,7 @@ import BasicScripts from '~/components/BasicScripts.astro';
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <!-- <ViewTransitions /> -->
     <BasicScripts />
-    <script src="https://unpkg.com/tailwindcss-intersect@2.x.x/dist/observer.min.js"></script>
+    <script is:inline src="https://unpkg.com/tailwindcss-intersect@2.x.x/dist/observer.min.js"></script>
   </head>
   <body
     class='antialiased text-default bg-page tracking-tight dark:bg-black dark:text-gray-300'>
