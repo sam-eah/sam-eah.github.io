@@ -11,18 +11,16 @@
 <div
   class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 overflow-hidden"
 >
-  <details class="group">
+  <details>
     <summary
       class="p-6 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-200"
     >
       <div class="space-y-3">
         <div class="flex items-baseline gap-2">
           <!-- Expandable indicator -->
-          <div
-            class="flex items-center justify-center w-6 h-6 rounded-full bg-gray-100 dark:bg-gray-800 group-hover:bg-purple-100 dark:group-hover:bg-purple-900/30 transition-colors duration-200"
-          >
+           <div class="flex items-center justify-center w-6 h-6 rounded-full bg-gray-100 dark:bg-gray-800 transition-colors duration-200">
             <svg
-              class="w-4 h-4 text-gray-600 dark:text-gray-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-all duration-200 group-open:rotate-180"
+              class="w-4 h-4 text-gray-600 dark:text-gray-400 transition-all duration-200"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -148,7 +146,11 @@
   }
 
   /* Chevron rotation when open */
-  details[open] .group-open\:rotate-180 {
+  details > summary svg {
+    transition: transform 0.3s ease;
+  }
+
+  details[open] > summary svg {
     transform: rotate(180deg);
   }
 </style>
