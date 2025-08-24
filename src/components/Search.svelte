@@ -32,11 +32,6 @@
   let isMac = false;
   let shortcutKey = 'Ctrl'; // default
 
-  onMount(() => {
-    isMac = navigator.platform.toUpperCase().includes('MAC');
-    shortcutKey = isMac ? '⌘' : 'Ctrl';
-  });
-
   function open() {
     dialog?.showModal();
     dialog?.querySelector<HTMLInputElement>('input')?.focus();
@@ -46,23 +41,27 @@
     if (event.target === dialog) dialog.close();
   }
 
-  // Shortcut listener
-  function handleKeydown(event: KeyboardEvent) {
-    const isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
-    const ctrlOrCmd = isMac ? event.metaKey : event.ctrlKey;
+  let handleKeydown: (e: KeyboardEvent) => void;
 
-    if (ctrlOrCmd && event.key.toLowerCase() === "k") {
-      event.preventDefault(); // prevent default browser behavior
-      open();
-    }
-  }
+  onMount(async () => {
+    isMac = navigator.platform.toUpperCase().includes('MAC');
+    shortcutKey = isMac ? '⌘' : 'Ctrl';
+    handleKeydown = (event: KeyboardEvent) => {
+      // navigator is safe here because this code runs on the client
+      const isMac = navigator.platform.toUpperCase().includes("MAC");
+      const ctrlOrCmd = isMac ? event.metaKey : event.ctrlKey;
 
-  onMount(() => {
+      if (ctrlOrCmd && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        open();
+      }
+    };
+
     window.addEventListener("keydown", handleKeydown);
   });
 
   onDestroy(() => {
-    window.removeEventListener("keydown", handleKeydown);
+    if (handleKeydown) window.removeEventListener("keydown", handleKeydown);
   });
 </script>
 
