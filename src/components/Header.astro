@@ -1,9 +1,15 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
-// import Search from './Search.svelte';
+import Search from "./Search.svelte";
+import { getCollection } from "astro:content";
 
 const props = Astro.props;
+
+const posts =
+  (await getCollection("blog")).sort(
+    (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+  ) ?? [];
 ---
 
 <header
@@ -29,6 +35,8 @@ const props = Astro.props;
       <HeaderLink href="/cv">About</HeaderLink>
     </div>
     <div class="flex align-center gap-2 sm:gap-4">
+      <Search client:load posts={posts} />
+
       <button
         id="themeToggle"
         onclick="
