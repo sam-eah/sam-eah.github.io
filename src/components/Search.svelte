@@ -95,7 +95,7 @@
   <span
     class="absolute top-full mt-2 left-1/2 transform -translate-x-1/2
           px-2 py-1 rounded text-xs font-medium
-          bg-gray-800 text-white dark:bg-gray-200 dark:text-gray-900
+          bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-white
           opacity-0 group-hover:opacity-100 group-focus:opacity-100
           transition-opacity duration-200 pointer-events-none whitespace-nowrap
           items-center gap-1 hidden sm:flex"
