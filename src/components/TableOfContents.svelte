@@ -33,6 +33,8 @@
 
 {#if tocHeadings.length > 0}
   <nav class="toc-sidebar bg-[#bf9bff4d] text-black dark:bg-black dark:text-white w-72 md:w-80 lg:w-96" class:toc-expanded={isExpanded} aria-label="Table of contents">
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-no-static-element-interactions -->
     <div class="toc-header" class:collapsed={!isExpanded} on:click={toggleExpanded}>
       <h3 class="toc-title">Contents</h3>
       <button 
@@ -131,7 +133,6 @@
     display: none;
     background: none;
     border: none;
-    color: #d1d5db;
     cursor: pointer;
     padding: 0.25rem;
     border-radius: 0.25rem;
