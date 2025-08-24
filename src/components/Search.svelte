@@ -73,7 +73,8 @@
     aria-label="Search posts"
     class="flex items-center justify-center w-8 h-8 rounded-full shadow-sm
            bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-gray-100
-           transition-colors duration-200 hover:scale-105 active:scale-95"
+           transition-colors duration-200 hover:scale-105 active:scale-95
+           hover:text-purple-800 dark:hover:text-purple-300"
   >
     <!-- Magnifying glass SVG -->
     <svg
