@@ -84,17 +84,21 @@
       stroke="currentColor"
       stroke-width="2"
     >
-      <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z"/>
+      <!-- Circle in center -->
+      <circle cx="11" cy="11" r="7" stroke-linecap="round" stroke-linejoin="round" />
+      <!-- Handle -->
+      <line x1="16" y1="16" x2="21" y2="21" stroke-linecap="round" stroke-linejoin="round" />
     </svg>
   </button>
 
   <!-- Tooltip below -->
   <span
     class="absolute top-full mt-2 left-1/2 transform -translate-x-1/2
-           px-2 py-1 rounded text-xs font-medium
-            bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-white
-           opacity-0 group-hover:opacity-100 group-focus:opacity-100
-           transition-opacity duration-200 pointer-events-none whitespace-nowrap"
+          px-2 py-1 rounded text-xs font-medium
+          bg-gray-800 text-white dark:bg-gray-200 dark:text-gray-900
+          opacity-0 group-hover:opacity-100 group-focus:opacity-100
+          transition-opacity duration-200 pointer-events-none whitespace-nowrap
+          items-center gap-1 hidden sm:flex"
   >
     <span class="flex items-center gap-2">
       <span>Search</span>
