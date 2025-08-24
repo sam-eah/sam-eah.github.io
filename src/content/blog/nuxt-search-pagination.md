@@ -70,24 +70,26 @@ server/api/book/index.get.ts
 
 ```ts
 import { prisma } from '../../../prisma/db';
+import { z } from 'zod';
 
 const ITEMS_PER_PAGE = 2;
 
+const paramsSchema = z.object({
+  q: z.string().optional(),
+  status: z.stringbool()..or(z.literal("").transform(() => undefined)).optional(),
+  "in": z.enum(["author", "category"]).optional(),
+  page: z.coerce.number().default(1),
+})
+
 // https://nuxt.com/docs/guide/directory-structure/server
 export default defineEventHandler(async (event) => {
-  const query = getQuery(event);
-  const q = query.q as string | undefined;
-  const status = query.status as 'true' | undefined;
-  const searchIn = query.in as 'author' | 'category' | undefined;
-  const currentPage = query.page ? +query.page : 1;
+  const { q, status, "in": searchIn, page } = await getValidateQuery(event, paramsSchema.parse);
 
-  const where = {
+  const where: Prisma.BookWhereInput = {
     ...(status === 'true' && { currentOwnerId: null }),
     ...(q &&
-      (searchIn === 'author'
-        ? { author: { name: { contains: q } } }
-        : searchIn === 'category'
-        ? { category: { name: { contains: q } } }
+      (searchIn
+        ? { [searchIn]: { name: { contains: q } } }
         : { title: { contains: q } })),
   };
 
@@ -99,7 +101,7 @@ export default defineEventHandler(async (event) => {
           author: true,
           category: true,
         },
-        skip: (currentPage - 1) * ITEMS_PER_PAGE,
+        skip: (page - 1) * ITEMS_PER_PAGE,
         take: ITEMS_PER_PAGE,
       }),
       prisma.book.count({ where }),
@@ -111,12 +113,10 @@ export default defineEventHandler(async (event) => {
       });
     });
 
-  const totalPage = Math.ceil(count / ITEMS_PER_PAGE);
-
   return {
     data,
-    currentPage,
-    totalPage,
+    currentPage: page,
+    totalPage: Math.ceil(count / ITEMS_PER_PAGE),
   };
 });
 ```
