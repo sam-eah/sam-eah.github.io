@@ -19,7 +19,7 @@
   export let posts: Post[] = [];
 
   let dialog: HTMLDialogElement;
-  let query = "";
+  let query = '';
 
   // Declarative search
   $: filteredPosts = query
@@ -28,11 +28,18 @@
         .map((r) => r.original)
     : [];
 
+  // platform detection must run in onMount
+  let isMac = false;
+  let shortcutKey = 'Ctrl'; // default
+
+  onMount(() => {
+    isMac = navigator.platform.toUpperCase().includes('MAC');
+    shortcutKey = isMac ? '⌘' : 'Ctrl';
+  });
+
   function open() {
     dialog?.showModal();
-    // Autofocus the input when opened
-    const input = dialog?.querySelector<HTMLInputElement>("input");
-    input?.focus();
+    dialog?.querySelector<HTMLInputElement>('input')?.focus();
   }
 
   function close(event: MouseEvent) {
@@ -93,8 +100,8 @@
     <span class="flex items-center gap-2">
       <span>Search</span>
       <span class="inline-flex items-center gap-1">
-        <span class="inline-block px-2 py-1 text-xs font-semibold border border-white font-mono rounded">⌘</span>
-        <span class="inline-block px-2 py-1 text-xs font-semibold border border-white font-mono rounded">K</span>
+        <span class="inline-block px-2 py-1 text-xs font-semibold text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-900 rounded">{shortcutKey}</span>
+        <span class="inline-block px-2 py-1 text-xs font-semibold text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-900 rounded">K</span>
       </span>
     </span>
   </span>
